@@ -1,0 +1,45 @@
+../repos/PHP/api
+==========================================================
+Project: dingo/api
+total de arquivos de test: 28
+total de arquivos de test com mocks: 15
+total de mocks no projeto: 41
+razão de testes com mocks no projeto: 53.57%
+../repos/PHP/assert
+==========================================================
+Project: webmozart/assert
+total de arquivos de test: 2
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/cache
+==========================================================
+Project: doctrine/cache
+total de arquivos de test: 23
+total de arquivos de test com mocks: 5
+total de mocks no projeto: 39
+razão de testes com mocks no projeto: 21.74%
+../repos/PHP/Cachet
+==========================================================
+Project: CachetHQ/Cachet
+total de arquivos de test: 127
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 5
+razão de testes com mocks no projeto: 0.79%
+../repos/PHP/cakephp
+==========================================================
+Project: cakephp/cakephp
+total de arquivos de test: 311
+total de arquivos de test com mocks: 118
+total de mocks no projeto: 1221
+razão de testes com mocks no projeto: 37.94%
+../repos/PHP/Carbon
+==========================================================
+Project: briannesbitt/Carbon
+total de arquivos de test: 976
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 3
+razão de testes com mocks no projeto: 0.1%
+../repos/PHP/clean-code-php
+==========================================================
+Project: jupeter/clean-code-php

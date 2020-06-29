@@ -1,0 +1,43 @@
+Verificando cobertura
+laravel/laravel: False
+blueimp/jQuery-File-Upload: False
+get_codecov
+fzaninotto/Faker: 56.03
+symfony/symfony: False
+composer/composer: False
+danielmiessler/SecLists: False
+laravel/framework: False
+domnikl/DesignPatternsPHP: False
+guzzle/guzzle: False
+bcit-ci/CodeIgniter: False
+Seldaek/monolog: False
+get_codecov
+sebastianbergmann/phpunit: 84.66
+get_scrutinizer
+PHPMailer/PHPMailer: 72.8
+get_codecov
+briannesbitt/Carbon: 100.00
+get_coveralls
+yiisoft/yii2: 100
+matomo-org/matomo: False
+erusev/parsedown: False
+get_coveralls
+nikic/PHP-Parser: 95
+getgrav/grav: False
+phacility/phabricator: False
+get_scrutinizer
+filp/whoops: 57.2
+get_scrutinizer
+phanan/koel: 67.3
+CachetHQ/Cachet: False
+roots/sage: False
+thephpleague/flysystem: False
+get_coveralls
+slimphp/Slim: 98
+barryvdh/laravel-debugbar: False
+Intervention/image: False
+phalcon/cphalcon: False
+vlucas/phpdotenv: False
+get_coveralls
+ramsey/uuid: 96
+flarum/flarum: False

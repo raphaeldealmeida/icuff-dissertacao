@@ -1,0 +1,801 @@
+../repos/PHP/api
+==========================================================
+Project: dingo/api
+total de arquivos de test: 28
+total de arquivos de test com mocks: 15
+total de mocks no projeto: 41
+razão de testes com mocks no projeto: 53.57%
+../repos/PHP/assert
+==========================================================
+Project: webmozart/assert
+total de arquivos de test: 2
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/cache
+==========================================================
+Project: doctrine/cache
+total de arquivos de test: 23
+total de arquivos de test com mocks: 5
+total de mocks no projeto: 39
+razão de testes com mocks no projeto: 21.74%
+../repos/PHP/Cachet
+==========================================================
+Project: CachetHQ/Cachet
+total de arquivos de test: 127
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 5
+razão de testes com mocks no projeto: 0.79%
+../repos/PHP/cakephp
+==========================================================
+Project: cakephp/cakephp
+total de arquivos de test: 311
+total de arquivos de test com mocks: 118
+total de mocks no projeto: 1221
+razão de testes com mocks no projeto: 37.94%
+../repos/PHP/Carbon
+==========================================================
+Project: briannesbitt/Carbon
+total de arquivos de test: 976
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 3
+razão de testes com mocks no projeto: 0.1%
+../repos/PHP/clean-code-php
+==========================================================
+Project: jupeter/clean-code-php
+Não é possível identifiar testes neste projeto
+../repos/PHP/CodeIgniter
+==========================================================
+Project: bcit-ci/CodeIgniter
+total de arquivos de test: 66
+total de arquivos de test com mocks: 8
+total de mocks no projeto: 12
+razão de testes com mocks no projeto: 12.12%
+../repos/PHP/comparator
+==========================================================
+Project: sebastianbergmann/comparator
+total de arquivos de test: 14
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 23
+razão de testes com mocks no projeto: 7.14%
+../repos/PHP/composer
+==========================================================
+Project: composer/composer
+total de arquivos de test: 113
+total de arquivos de test com mocks: 60
+total de mocks no projeto: 647
+razão de testes com mocks no projeto: 53.1%
+../repos/PHP/console
+==========================================================
+Project: symfony/console
+total de arquivos de test: 55
+total de arquivos de test com mocks: 11
+total de mocks no projeto: 22
+razão de testes com mocks no projeto: 20.0%
+../repos/PHP/container
+==========================================================
+Project: php-fig/container
+Não é possível identifiar testes neste projeto
+../repos/PHP/core
+==========================================================
+Project: owncloud/core
+total de arquivos de test: 705
+total de arquivos de test com mocks: 458
+total de mocks no projeto: 5443
+razão de testes com mocks no projeto: 64.96%
+../repos/PHP/cphalcon
+==========================================================
+Project: phalcon/cphalcon
+Não é possível identifiar testes neste projeto
+../repos/PHP/css-selector
+==========================================================
+Project: symfony/css-selector
+total de arquivos de test: 27
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/CssToInlineStyles
+==========================================================
+Project: tijsverkoyen/CssToInlineStyles
+total de arquivos de test: 6
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/dbal
+==========================================================
+Project: doctrine/dbal
+total de arquivos de test: 187
+total de arquivos de test com mocks: 66
+total de mocks no projeto: 208
+razão de testes com mocks no projeto: 35.29%
+../repos/PHP/debug
+==========================================================
+Project: symfony/debug
+total de arquivos de test: 7
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 9
+razão de testes com mocks no projeto: 14.29%
+../repos/PHP/DeepCopy
+==========================================================
+Project: myclabs/DeepCopy
+total de arquivos de test: 18
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 1
+razão de testes com mocks no projeto: 5.56%
+../repos/PHP/deployer
+==========================================================
+Project: deployphp/deployer
+total de arquivos de test: 20
+total de arquivos de test com mocks: 5
+total de mocks no projeto: 20
+razão de testes com mocks no projeto: 25.0%
+../repos/PHP/DesignPatternsPHP
+==========================================================
+Project: domnikl/DesignPatternsPHP
+total de arquivos de test: 35
+total de arquivos de test com mocks: 3
+total de mocks no projeto: 7
+razão de testes com mocks no projeto: 8.57%
+../repos/PHP/diff
+==========================================================
+Project: sebastianbergmann/diff
+total de arquivos de test: 18
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/directus
+==========================================================
+Project: directus/directus
+total de arquivos de test: 486
+total de arquivos de test com mocks: 125
+total de mocks no projeto: 772
+razão de testes com mocks no projeto: 25.72%
+../repos/PHP/dompdf
+==========================================================
+Project: dompdf/dompdf
+total de arquivos de test: 4
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/EmailValidator
+==========================================================
+Project: egulias/EmailValidator
+total de arquivos de test: 7
+total de arquivos de test com mocks: 2
+total de mocks no projeto: 14
+razão de testes com mocks no projeto: 28.57%
+../repos/PHP/entrust
+==========================================================
+Project: Zizaco/entrust
+total de arquivos de test: 6
+total de arquivos de test com mocks: 6
+total de mocks no projeto: 53
+razão de testes com mocks no projeto: 100.0%
+../repos/PHP/environment
+==========================================================
+Project: sebastianbergmann/environment
+total de arquivos de test: 3
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/event-dispatcher
+==========================================================
+Project: symfony/event-dispatcher
+total de arquivos de test: 7
+total de arquivos de test com mocks: 3
+total de mocks no projeto: 6
+razão de testes com mocks no projeto: 42.86%
+../repos/PHP/exporter
+==========================================================
+Project: sebastianbergmann/exporter
+total de arquivos de test: 1
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/Faker
+==========================================================
+Project: fzaninotto/Faker
+total de arquivos de test: 131
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/finder
+==========================================================
+Project: symfony/finder
+total de arquivos de test: 18
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/flarum
+==========================================================
+Project: flarum/flarum
+Não é possível identifiar testes neste projeto
+../repos/PHP/flysystem
+==========================================================
+Project: thephpleague/flysystem
+total de arquivos de test: 3
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/framework
+==========================================================
+Project: laravel/framework
+total de arquivos de test: 412
+total de arquivos de test com mocks: 157
+total de mocks no projeto: 1463
+razão de testes com mocks no projeto: 38.11%
+../repos/PHP/global-state
+==========================================================
+Project: sebastianbergmann/global-state
+total de arquivos de test: 4
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/google-api-php-client
+==========================================================
+Project: googleapis/google-api-php-client
+total de arquivos de test: 28
+total de arquivos de test com mocks: 6
+total de mocks no projeto: 32
+razão de testes com mocks no projeto: 21.43%
+../repos/PHP/Goutte
+==========================================================
+Project: FriendsOfPHP/Goutte
+total de arquivos de test: 1
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/grav
+==========================================================
+Project: getgrav/grav
+total de arquivos de test: 16
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/guzzle
+==========================================================
+Project: guzzle/guzzle
+total de arquivos de test: 26
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/hamcrest-php
+==========================================================
+Project: hamcrest/hamcrest-php
+total de arquivos de test: 55
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/http-foundation
+==========================================================
+Project: symfony/http-foundation
+total de arquivos de test: 59
+total de arquivos de test com mocks: 9
+total de mocks no projeto: 32
+razão de testes com mocks no projeto: 15.25%
+../repos/PHP/http-kernel
+==========================================================
+Project: symfony/http-kernel
+total de arquivos de test: 89
+total de arquivos de test com mocks: 40
+total de mocks no projeto: 177
+razão de testes com mocks no projeto: 44.94%
+../repos/PHP/http-message
+==========================================================
+Project: php-fig/http-message
+Não é possível identifiar testes neste projeto
+../repos/PHP/image
+==========================================================
+Project: Intervention/image
+total de arquivos de test: 68
+total de arquivos de test com mocks: 61
+total de mocks no projeto: 382
+razão de testes com mocks no projeto: 89.71%
+../repos/PHP/instantiator
+==========================================================
+Project: doctrine/instantiator
+total de arquivos de test: 3
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/jQuery-File-Upload
+==========================================================
+Project: blueimp/jQuery-File-Upload
+Não é possível identifiar testes neste projeto
+../repos/PHP/jwt-auth
+==========================================================
+Project: tymondesigns/jwt-auth
+total de arquivos de test: 26
+total de arquivos de test com mocks: 17
+total de mocks no projeto: 58
+razão de testes com mocks no projeto: 65.38%
+../repos/PHP/koel
+==========================================================
+Project: phanan/koel
+total de arquivos de test: 50
+total de arquivos de test com mocks: 28
+total de mocks no projeto: 42
+razão de testes com mocks no projeto: 56.0%
+../repos/PHP/labs
+==========================================================
+Project: docker/labs
+Não é possível identifiar testes neste projeto
+../repos/PHP/laravel
+==========================================================
+Project: laravel/laravel
+total de arquivos de test: 2
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/laravel-admin
+==========================================================
+Project: z-song/laravel-admin
+total de arquivos de test: 15
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/laravel-debugbar
+==========================================================
+Project: barryvdh/laravel-debugbar
+Não é possível identifiar testes neste projeto
+../repos/PHP/Laravel-Excel
+==========================================================
+Project: Maatwebsite/Laravel-Excel
+total de arquivos de test: 48
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/laravel-ide-helper
+==========================================================
+Project: barryvdh/laravel-ide-helper
+total de arquivos de test: 14
+total de arquivos de test com mocks: 13
+total de mocks no projeto: 16
+razão de testes com mocks no projeto: 92.86%
+../repos/PHP/laravel-permission
+==========================================================
+Project: spatie/laravel-permission
+total de arquivos de test: 15
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/lexer
+==========================================================
+Project: doctrine/lexer
+total de arquivos de test: 1
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/log
+==========================================================
+Project: php-fig/log
+total de arquivos de test: 2
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 1
+razão de testes com mocks no projeto: 50.0%
+../repos/PHP/lumen
+==========================================================
+Project: laravel/lumen
+total de arquivos de test: 1
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/Lychee
+==========================================================
+Project: electerious/Lychee
+Não é possível identifiar testes neste projeto
+../repos/PHP/magento2
+==========================================================
+Project: magento/magento2
+total de arquivos de test: 6904
+total de arquivos de test com mocks: 4252
+total de mocks no projeto: 36365
+razão de testes com mocks no projeto: 61.59%
+../repos/PHP/manifest
+==========================================================
+Project: phar-io/manifest
+total de arquivos de test: 35
+total de arquivos de test com mocks: 3
+total de mocks no projeto: 4
+razão de testes com mocks no projeto: 8.57%
+../repos/PHP/matomo
+==========================================================
+Project: matomo-org/matomo
+total de arquivos de test: 534
+total de arquivos de test com mocks: 28
+total de mocks no projeto: 91
+razão de testes com mocks no projeto: 5.24%
+../repos/PHP/Mobile-Detect
+==========================================================
+Project: serbanghita/Mobile-Detect
+total de arquivos de test: 3
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/mockery
+==========================================================
+Project: mockery/mockery
+total de arquivos de test: 44
+total de arquivos de test com mocks: 17
+total de mocks no projeto: 70
+razão de testes com mocks no projeto: 38.64%
+../repos/PHP/monica
+==========================================================
+Project: monicahq/monica
+total de arquivos de test: 264
+total de arquivos de test com mocks: 4
+total de mocks no projeto: 13
+razão de testes com mocks no projeto: 1.52%
+../repos/PHP/monolog
+==========================================================
+Project: Seldaek/monolog
+total de arquivos de test: 85
+total de arquivos de test com mocks: 30
+total de mocks no projeto: 112
+razão de testes com mocks no projeto: 35.29%
+../repos/PHP/oauth2-server
+==========================================================
+Project: thephpleague/oauth2-server
+total de arquivos de test: 17
+total de arquivos de test com mocks: 13
+total de mocks no projeto: 344
+razão de testes com mocks no projeto: 76.47%
+../repos/PHP/october
+==========================================================
+Project: octobercms/october
+total de arquivos de test: 53
+total de arquivos de test com mocks: 2
+total de mocks no projeto: 3
+razão de testes com mocks no projeto: 3.77%
+../repos/PHP/opencart
+==========================================================
+Project: opencart/opencart
+total de arquivos de test: 24
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/orm
+==========================================================
+Project: doctrine/orm
+total de arquivos de test: 400
+total de arquivos de test com mocks: 34
+total de mocks no projeto: 148
+razão de testes com mocks no projeto: 8.5%
+../repos/PHP/parsedown
+==========================================================
+Project: erusev/parsedown
+total de arquivos de test: 1
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/phabricator
+==========================================================
+Project: phacility/phabricator
+Não é possível identifiar testes neste projeto
+../repos/PHP/php-code-coverage
+==========================================================
+Project: sebastianbergmann/php-code-coverage
+total de arquivos de test: 47
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/PHP_CodeSniffer
+==========================================================
+Project: squizlabs/PHP_CodeSniffer
+total de arquivos de test: 262
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/PHP-CS-Fixer
+==========================================================
+Project: FriendsOfPHP/PHP-CS-Fixer
+total de arquivos de test: 363
+total de arquivos de test com mocks: 24
+total de mocks no projeto: 141
+razão de testes com mocks no projeto: 6.61%
+../repos/PHP/phpdotenv
+==========================================================
+Project: vlucas/phpdotenv
+total de arquivos de test: 13
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/PHPMailer
+==========================================================
+Project: PHPMailer/PHPMailer
+total de arquivos de test: 2
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/php-ml
+==========================================================
+Project: php-ai/php-ml
+total de arquivos de test: 96
+total de arquivos de test com mocks: 5
+total de mocks no projeto: 8
+razão de testes com mocks no projeto: 5.21%
+../repos/PHP/PHP-Parser
+==========================================================
+Project: nikic/PHP-Parser
+total de arquivos de test: 45
+total de arquivos de test com mocks: 3
+total de mocks no projeto: 28
+razão de testes com mocks no projeto: 6.67%
+../repos/PHP/php-pm
+==========================================================
+Project: php-pm/php-pm
+total de arquivos de test: 2
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/PhpSpreadsheet
+==========================================================
+Project: PHPOffice/PhpSpreadsheet
+total de arquivos de test: 298
+total de arquivos de test com mocks: 17
+total de mocks no projeto: 85
+razão de testes com mocks no projeto: 5.7%
+../repos/PHP/phpstan
+==========================================================
+Project: phpstan/phpstan
+total de arquivos de test: 13
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/php-timer
+==========================================================
+Project: sebastianbergmann/php-timer
+total de arquivos de test: 3
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/php-token-stream
+==========================================================
+Project: sebastianbergmann/php-token-stream
+total de arquivos de test: 6
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/phpunit
+==========================================================
+Project: sebastianbergmann/phpunit
+total de arquivos de test: 249
+total de arquivos de test com mocks: 18
+total de mocks no projeto: 299
+razão de testes com mocks no projeto: 7.23%
+../repos/PHP/polyfill-mbstring
+==========================================================
+Project: symfony/polyfill-mbstring
+Não é possível identifiar testes neste projeto
+../repos/PHP/predis
+==========================================================
+Project: nrk/predis
+total de arquivos de test: 234
+total de arquivos de test com mocks: 52
+total de mocks no projeto: 705
+razão de testes com mocks no projeto: 22.22%
+../repos/PHP/process
+==========================================================
+Project: symfony/process
+total de arquivos de test: 5
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 3
+razão de testes com mocks no projeto: 20.0%
+../repos/PHP/promises
+==========================================================
+Project: guzzle/promises
+total de arquivos de test: 9
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 3
+razão de testes com mocks no projeto: 11.11%
+../repos/PHP/prophecy
+==========================================================
+Project: phpspec/prophecy
+total de arquivos de test: 3
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 4
+razão de testes com mocks no projeto: 33.33%
+../repos/PHP/psr7
+==========================================================
+Project: guzzle/psr7
+total de arquivos de test: 22
+total de arquivos de test com mocks: 8
+total de mocks no projeto: 13
+razão de testes com mocks no projeto: 36.36%
+../repos/PHP/psysh
+==========================================================
+Project: bobthecow/psysh
+total de arquivos de test: 77
+total de arquivos de test com mocks: 5
+total de mocks no projeto: 11
+razão de testes com mocks no projeto: 6.49%
+../repos/PHP/random_compat
+==========================================================
+Project: paragonie/random_compat
+total de arquivos de test: 8
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/react
+==========================================================
+Project: reactphp/react
+Não é possível identifiar testes neste projeto
+../repos/PHP/ReflectionCommon
+==========================================================
+Project: phpDocumentor/ReflectionCommon
+total de arquivos de test: 1
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/ReflectionDocBlock
+==========================================================
+Project: phpDocumentor/ReflectionDocBlock
+total de arquivos de test: 33
+total de arquivos de test com mocks: 23
+total de mocks no projeto: 109
+razão de testes com mocks no projeto: 69.7%
+../repos/PHP/routing
+==========================================================
+Project: symfony/routing
+total de arquivos de test: 31
+total de arquivos de test com mocks: 11
+total de mocks no projeto: 24
+razão de testes com mocks no projeto: 35.48%
+../repos/PHP/sage
+==========================================================
+Project: roots/sage
+Não é possível identifiar testes neste projeto
+../repos/PHP/SecLists
+==========================================================
+Project: danielmiessler/SecLists
+Não é possível identifiar testes neste projeto
+../repos/PHP/server
+==========================================================
+Project: nextcloud/server
+total de arquivos de test: 810
+total de arquivos de test com mocks: 586
+total de mocks no projeto: 6694
+razão de testes com mocks no projeto: 72.35%
+../repos/PHP/simple-cache
+==========================================================
+Project: php-fig/simple-cache
+Não é possível identifiar testes neste projeto
+../repos/PHP/Slim
+==========================================================
+Project: slimphp/Slim
+total de arquivos de test: 33
+total de arquivos de test com mocks: 21
+total de mocks no projeto: 482
+razão de testes com mocks no projeto: 63.64%
+../repos/PHP/swiftmailer
+==========================================================
+Project: swiftmailer/swiftmailer
+total de arquivos de test: 117
+total de arquivos de test com mocks: 51
+total de mocks no projeto: 283
+razão de testes com mocks no projeto: 43.59%
+../repos/PHP/Sylius
+==========================================================
+Project: Sylius/Sylius
+total de arquivos de test: 104
+total de arquivos de test com mocks: 30
+total de mocks no projeto: 92
+razão de testes com mocks no projeto: 28.85%
+../repos/PHP/symfony
+==========================================================
+Project: symfony/symfony
+total de arquivos de test: 1491
+total de arquivos de test com mocks: 422
+total de mocks no projeto: 2235
+razão de testes com mocks no projeto: 28.3%
+../repos/PHP/think
+==========================================================
+Project: top-think/think
+Não é possível identifiar testes neste projeto
+../repos/PHP/tinker
+==========================================================
+Project: laravel/tinker
+total de arquivos de test: 2
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 4
+razão de testes com mocks no projeto: 50.0%
+../repos/PHP/translation
+==========================================================
+Project: symfony/translation
+total de arquivos de test: 42
+total de arquivos de test com mocks: 5
+total de mocks no projeto: 15
+razão de testes com mocks no projeto: 11.9%
+../repos/PHP/TrustedProxy
+==========================================================
+Project: fideloper/TrustedProxy
+total de arquivos de test: 1
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 2
+razão de testes com mocks no projeto: 100.0%
+../repos/PHP/Twig
+==========================================================
+Project: twigphp/Twig
+total de arquivos de test: 83
+total de arquivos de test com mocks: 19
+total de mocks no projeto: 114
+razão de testes com mocks no projeto: 22.89%
+../repos/PHP/typecho
+==========================================================
+Project: typecho/typecho
+Não é possível identifiar testes neste projeto
+../repos/PHP/TypeResolver
+==========================================================
+Project: phpDocumentor/TypeResolver
+total de arquivos de test: 11
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 1
+razão de testes com mocks no projeto: 9.09%
+../repos/PHP/uuid
+==========================================================
+Project: ramsey/uuid
+total de arquivos de test: 58
+total de arquivos de test com mocks: 29
+total de mocks no projeto: 141
+razão de testes com mocks no projeto: 50.0%
+../repos/PHP/Validation
+==========================================================
+Project: Respect/Validation
+total de arquivos de test: 162
+total de arquivos de test com mocks: 15
+total de mocks no projeto: 89
+razão de testes com mocks no projeto: 9.26%
+../repos/PHP/var-dumper
+==========================================================
+Project: symfony/var-dumper
+total de arquivos de test: 24
+total de arquivos de test com mocks: 2
+total de mocks no projeto: 4
+razão de testes com mocks no projeto: 8.33%
+../repos/PHP/voyager
+==========================================================
+Project: the-control-group/voyager
+total de arquivos de test: 23
+total de arquivos de test com mocks: 1
+total de mocks no projeto: 12
+razão de testes com mocks no projeto: 4.35%
+../repos/PHP/wechat
+==========================================================
+Project: overtrue/wechat
+total de arquivos de test: 207
+total de arquivos de test com mocks: 45
+total de mocks no projeto: 219
+razão de testes com mocks no projeto: 21.74%
+../repos/PHP/whoops
+==========================================================
+Project: filp/whoops
+total de arquivos de test: 15
+total de arquivos de test com mocks: 2
+total de mocks no projeto: 2
+razão de testes com mocks no projeto: 13.33%
+../repos/PHP/woocommerce
+==========================================================
+Project: woocommerce/woocommerce
+total de arquivos de test: 4
+total de arquivos de test com mocks: 0
+total de mocks no projeto: 0
+razão de testes com mocks no projeto: 0.0%
+../repos/PHP/WordPress-Plugin-Boilerplate
+==========================================================
+Project: DevinVinson/WordPress-Plugin-Boilerplate
+Não é possível identifiar testes neste projeto
+../repos/PHP/Workerman
+==========================================================
+Project: walkor/Workerman
+Não é possível identifiar testes neste projeto
+../repos/PHP/yii2
+==========================================================
+Project: yiisoft/yii2
+total de arquivos de test: 294
+total de arquivos de test com mocks: 23
+total de mocks no projeto: 89
+razão de testes com mocks no projeto: 7.82%
+../repos/PHP/YOURLS
+==========================================================
+Project: YOURLS/YOURLS
+Não é possível identifiar testes neste projeto
