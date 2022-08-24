@@ -12,13 +12,8 @@ import pandas as pd
 
 FIELD_NAMES = ['owner','name','createdAt','pushedAt','isMirror','diskUsage','primaryLanguage','languages','contributors','watchers','stargazers','forks','issues','commits','pullRequests','branches','tags','releases','url','idSoftware','discardReason','domain','description']
 
-proxies = {
-            'http': 'http://09840070754:_Habaco56_@10.52.132.215:8080/',
-            'https': 'http://09840070754:_Habaco56_@10.52.132.215:8080/',
-        }
-
-user = 'raphaelrsa'
-password = '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'
+user = ''
+password = ''
 
 def execute():
     print(f'Criando lista de projetos.\n')
@@ -37,7 +32,7 @@ def execute():
         page = 1
         while( page != -1):
             url = f'https://api.github.com/search/repositories?q=stars%3A%3E5000%20created%3A{year}-01-01..{year}-12-31%20&sort=created&order=asc&page={page}&per_page=100'
-            r = requests.get(url, auth=(user, password), proxies=proxies)
+            r = requests.get(url, auth=(user, password))
             j = json.loads(r.text)
             
             print(len(j["items"]))
