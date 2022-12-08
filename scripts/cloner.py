@@ -5,7 +5,7 @@
 
 # ===== Configuration variables ======
 LIMIT = 200
-PROG_LANG = 'Java'
+PROG_LANG = 'PHP'
 REPO_PATH = '../repos'
 #DATASET_PATH = '../dataset/2_filtered_projects.xlsx'
 DATASET_PATH = '../dataset/projects_2022.xlsx'

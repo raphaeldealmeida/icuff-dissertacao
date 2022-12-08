@@ -4,7 +4,7 @@
 # Descripton: Verifica em cada projeto, quais ferramentas de teste utilizada pelos projetos
 
 # ===== Configuration variables ======
-PROG_LANG = 'Java'
+PROG_LANG = 'JavaScript'
 REPO_PATH = '../repos'
 DATASET_PATH = '../dataset/projects_final.xlsx'
 DATASET_PATH_TEST_PROJECTS = f'../dataset/{PROG_LANG}_projects_tests_tools.csv'
@@ -12,7 +12,7 @@ DATASET_PATH_TEST_PROJECTS = f'../dataset/{PROG_LANG}_projects_tests_tools.csv'
 DESC_FILE = {
     'Ruby': 'Gemfile',
     'Python': 'requirements.txt',
-    'JavaScript': 'package.json',
+    'JavaScript': 'package.json', #karma.conf.js
     'PHP': 'composer.*',
     'TEST': 'pom.xml',
     'Java': 'pom.xml'
@@ -20,10 +20,10 @@ DESC_FILE = {
 TEST_TOOLS = {
     'Ruby': ['rspec', 'minitest', 'test-unit', 'cucumber-ruby'],
     'Python': ['robot', 'pytest', 'unittest'],
-    'JavaScript': ['jest', 'jasmine', 'mocha', 'puppeteer', 'cypress'],
+    'JavaScript': ['jest', 'jasmine', 'mocha', 'puppeteer', 'cypress', 'qunit', 'tape', 'mockjs', 'ava', 'meteor-node-stubs', 'hapi/lab', 'ckeditor/ckeditor5-dev-tests'],
     'PHP': ['phpunit', 'codeception', 'phpspec', 'mockery', 'prophecy', 'phpunit-easymock', 'codeception/stub', 'php-mock', 'vfsstream'],
     'TEST': ['spring-boot-starter-test', 'mockito', 'junit'],
-    'Java': ['powermock', 'mockito', 'easymock', 'jmock']
+    'Java': ['powermock', 'mockito', 'easymock', 'jmock', 'javafaker', 'hoverfly-java', 'com.intuit.karate', 'needle4j', 'beanmother-core', 'fixture-factory', 'jfairy', 'wiremock', 'mock-server', 'jmockit']
 }
 # =====================================
 
@@ -91,13 +91,14 @@ def execute_analisys():
         desc_file_name = DESC_FILE[PROG_LANG]
         owner = _get_owner_from_repo(f'{REPO_PATH}/{PROG_LANG}/{proj_name}')
         #desc_paths = os.popen(f'find {dir_name} -name {desc_file_name}').read()
-        desc_paths = os.popen(f'find {dir_name} -name pom.xml -o -name *.gradle -o -name dependencies.lock').read()
+        #desc_paths = os.popen(f'find {dir_name} -name pom.xml -o -name *.gradle -o -name dependencies.lock').read()
+        desc_paths = os.popen(f'find {dir_name} -name package.json -o -name karma.conf.js').read()
         test_tools = _read_descriptor(desc_paths.split('\n'))
         print(f'Project: {proj_name}')
         print(f'Testing Tools: {test_tools}')
         print('\n')
         dados.append({'lang': PROG_LANG, 'owner': owner, 'name': proj_name, 'test_tools': test_tools})
-    #_write_csv(dados)
+    _write_csv(dados)
     
 if __name__ == "__main__":
     execute_analisys()
