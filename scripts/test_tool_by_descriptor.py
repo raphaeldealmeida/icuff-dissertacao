@@ -97,7 +97,7 @@ def execute_analisys():
         print(f'Testing Tools: {test_tools}')
         print('\n')
         dados.append({'lang': PROG_LANG, 'owner': owner, 'name': proj_name, 'test_tools': test_tools})
-    _write_csv(dados)
+    #_write_csv(dados)
     
 if __name__ == "__main__":
     execute_analisys()

@@ -7,7 +7,8 @@
 LIMIT = 200
 PROG_LANG = 'Java'
 REPO_PATH = '../repos'
-DATASET_PATH = '../dataset/2_filtered_projects.xlsx'
+#DATASET_PATH = '../dataset/2_filtered_projects.xlsx'
+DATASET_PATH = '../dataset/projects_2022.xlsx'
 # =====================================
 
 import pandas as pd
@@ -19,17 +20,16 @@ def _create_dirname(language, name):
     return f'{REPO_PATH}/{language}/{name}'
 
 def _download_repos(df):
+    print(f'Total projects: {df.size} \n')
     for index, row in df.iterrows():
-
-
         owner, language, name = row['owner'], row['primaryLanguage'], row['name']
         url = f'https://github.com/{owner}/{name}'
         dirname = _create_dirname(language, name)
         if not os.path.exists(dirname):
             os.system(f'git clone {url}.git {dirname}')
-            print(f'Successful download of {name}!\n')
+            print(f'{index} - Successful download of {name}!\n')
         else:
-            print(f'Error: The {name} repository already downloaded!\n')
+            print(f'{index} - Error: The {name} repository already downloaded!\n')
 
 def _apply_filters(df):
     if len(PROG_LANG) > 0:

@@ -25,7 +25,8 @@ TEST_TOOLS = {
 MOCK_TOOLS = {
     'PHP': ["createMock[^(]*\(([^)]*)\)", "getMock[^(]*\(([^)]*)\)", "getMockBuilder[^(]*\(([^)]*)\)", "getMockForTrait[^(]*\(([^)]*)\)", "getMockForAbstractClass[^(]*\(([^)]*)\)", "getMockFromWsdl[^(]*\(([^)]*)\)", "vfsStream::setup[^(]*\(([^)]*)\)","prophesize[^(]*\(([^)]*)\)","::mock[^(]*\(([^)]*)\)", "::spy[^(]*\(([^)]*)\)"],
     'TEST': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)"],
-    'Java': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)"]
+    'Java': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)"],
+    'Python': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)",],
 }
 
 FILE_EXT = {
@@ -86,7 +87,8 @@ def _get_owner_from_repo(path_repo):
 
 def execute_analisys():
     result = []
-    proj_names = _get_proj_names()
+    # proj_names = _get_proj_names()
+    proj_names = ['commons-lang']
     for proj_name in proj_names:
         test_files = _get_test_files(f'{REPO_PATH}/{PROG_LANG}/{proj_name}')
         owner = _get_owner_from_repo(f'{REPO_PATH}/{PROG_LANG}/{proj_name}')
@@ -121,7 +123,9 @@ def execute_analisys():
         print(f'total de mocks no projeto: {total_mocks}')
         razao_mocks = round((total_files_com_mocks / qtr_test_files) * 100, 2)
         print(f'razão de testes com mocks no projeto: {razao_mocks}%')
-    _write_csv(result)
+        # print(*result,sep='\n')
+        print(*test_files,sep='\n')
+    # _write_csv(result)
 
 def execute_rq1():
     result = []

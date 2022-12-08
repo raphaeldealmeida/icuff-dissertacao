@@ -4,16 +4,16 @@
 # Description: Criar a lista de final dos projetos
 
 import requests
-import json, io, codecs, re
+import json, io, codecs, re, math
 from datetime import date
 from os import listdir
 from os.path import isfile, join
 import pandas as pd
 
 FIELD_NAMES = ['owner','name','createdAt','pushedAt','isMirror','diskUsage','primaryLanguage','languages','contributors','watchers','stargazers','forks','issues','commits','pullRequests','branches','tags','releases','url','idSoftware','discardReason','domain','description']
-
-user = ''
-password = ''
+DATASET_PATH = '../dataset/projects_2022.xlsx'
+user = 'raphaelrsa'
+password = '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'
 
 def execute():
     print(f'Criando lista de projetos.\n')
@@ -22,8 +22,8 @@ def execute():
     
     page = 1
     # 2008 to current year 
-    period = range (2008, date.today().year)
-    #period = range (2008, 2009)
+    #period = range (2008, date.today().year)
+    period = range (2022, 2023)
     
     for year in period:
         
@@ -65,6 +65,9 @@ def create_excel():
 
             for r in data['items']:
 
+                if not r['language'] in ['Java', 'PHP', 'Python', 'JavaScript']:
+                    continue
+
                 repo = {
                     'owner': r['owner']['login'],
                     'name': r['name'],
@@ -79,9 +82,9 @@ def create_excel():
                     'stargazers': r['stargazers_count'],
                     'forks': r['forks_count'],
                     'issues': r['open_issues_count'],
-                    'commits':'', #
+                    'commits':commit_count2(r['owner']['login'], r['name']), #
                     'pullRequests': '', #
-                    'branches': r['pushed_at'], #
+                    'branches': '', #
                     'tags': '', #
                     'releases': '', #
                     'url': r['html_url'],
@@ -90,18 +93,66 @@ def create_excel():
                     'domain': '',
                     'description': r['description'],
                 }
-                print(f"{r['owner']['login']}/{r['name']}: {commitCount(r['owner']['login'], r['name'])}")
-                #repos.append(repo)    
+                if (repo['commits'] < 5000):
+                    continue
+                print(f"{repo['owner']}/{repo['name']}: {repo['commits']}")
+                repos.append(repo)    
 
-    #df = pd.DataFrame(data=repos, columns=FIELD_NAMES)
-    #df.to_excel('../dataset/projects_2022.xlsx')
+    df = pd.DataFrame(data=repos, columns=FIELD_NAMES)
+    df.to_excel(DATASET_PATH)
+
+    # count commits git rev-list --all --count
 
     #loop to read and write on var
     #save var to xlsx
 
-def commitCount(user, repo):
-    return re.search('\d+$', requests.get(f'https://api.github.com/repos/{user}/{repo}/commits?per_page=1'.format(user, repo), auth=(user, password), proxies=proxies).links['last']['url']).group()
+def commit_count(user_repo, repo):
+    return int(re.search('\d+$', requests.get(f'https://api.github.com/repos/{user_repo}/{repo}/commits?per_page=1'.format(user_repo, repo), auth=(user, password)).links['last']['url']).group())
+
+def fill_commit_amount():
+    df = pd.read_excel(DATASET_PATH)
+    print(df.info())
+    dados = df.T.to_dict().values()
+    for row in dados:
+        owner, name, commits = row['owner'], row['name'], row['commits']
+
+        commits = commits if not (math.isnan(commits)) else commit_count2(owner, name)
+
+        print(f'{owner}/{name}: {commits}')
+        row['commits'] = commits
+        # dados[index] = row
+
+    df = pd.DataFrame(dados)
+    df.to_excel(DATASET_PATH) 
+
+def commit_count2(user_repo, repo):
+    from urllib.parse import urlparse, parse_qs
+    """
+    Return the number of commits to a project
+    """
+    url = f'https://api.github.com/repos/{user_repo}/{repo}/commits?per_page=1'
+
+    resp = requests.get(url, auth=(user, password))
+
+    if (resp.status_code // 100) != 2:
+        raise Exception(f'invalid github response: {resp.content}')
+    # check the resp count, just in case there are 0 commits
+    commit_count = len(resp.json())
+    last_page = resp.links.get('last')
+
+    # if there are no more pages, the count must be 0 or 1
+    if last_page:
+        # extract the query string from the last page url
+        parse_result = urlparse(last_page['url'])
+        dict_result = parse_qs(parse_result.query)
+        
+        # extract the page number from the query string
+        commit_count = int(dict_result['page'][0])
+    return commit_count
+
+
 
 if __name__ == "__main__":
+    # execute()
     create_excel()
-    
+    # fill_commit_amount()
