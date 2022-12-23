@@ -1,0 +1,27 @@
+mongomock
+requests_mock
+MockExecutor
+
+
+=COUNTIF(A1:D140,"[]")
+
+import pytest
+import unittest
+from unittest import mock
+from unittest.mock import patch
+
+pytest.ini
+
+(unittest.TestCase)
+mock.patch(
+mock.call(
+mock.mock_open(
+unittest.mock.patch.object(
+
+assert 
+
+
+@mock.patch.dict(
+@pytest.mark.parametrize(
+@pytest.mark.xfail(
+@pytest.fixture(

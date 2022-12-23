@@ -4,22 +4,22 @@
 # Descripton: Verifica em cada projeto, quais ferramentas de teste utilizada pelos projetos
 
 # ===== Configuration variables ======
-PROG_LANG = 'JavaScript'
+PROG_LANG = 'Python'
 REPO_PATH = '../repos'
 DATASET_PATH = '../dataset/projects_final.xlsx'
 DATASET_PATH_TEST_PROJECTS = f'../dataset/{PROG_LANG}_projects_tests_tools.csv'
 
 DESC_FILE = {
     'Ruby': 'Gemfile',
-    'Python': 'requirements.txt',
-    'JavaScript': 'package.json', #karma.conf.js
-    'PHP': 'composer.*',
-    'TEST': 'pom.xml',
-    'Java': 'pom.xml'
+    'Python': ['requirements.txt', 'requirements-*.txt', '*.txt','setup.cfg', 'setup.py', 'test_*.py'],
+    'JavaScript': ['package.json', 'karma.conf.js'],
+    'PHP': ['composer.*'],
+    'TEST': ['pom.xml'],
+    'Java': ['pom.xml', '*.gradle', 'dependencies.lock']
 }
 TEST_TOOLS = {
     'Ruby': ['rspec', 'minitest', 'test-unit', 'cucumber-ruby'],
-    'Python': ['robot', 'pytest', 'unittest'],
+    'Python': ['robot', 'pytest', 'unittest', 'mongomock', 'requests_mock', 'doublex', 'freezegun', 'httmock', 'httpretty', 'mocket', 'responses', 'vcrpy', 'pytest-vcr', 'pytest-recording', 'factory_boy', 'mixer', 'model_mommy', 'model_bakery', 'fake2db', 'Faker', 'mimesis', 'radar', ],
     'JavaScript': ['jest', 'jasmine', 'mocha', 'puppeteer', 'cypress', 'qunit', 'tape', 'mockjs', 'ava', 'meteor-node-stubs', 'hapi/lab', 'ckeditor/ckeditor5-dev-tests'],
     'PHP': ['phpunit', 'codeception', 'phpspec', 'mockery', 'prophecy', 'phpunit-easymock', 'codeception/stub', 'php-mock', 'vfsstream'],
     'TEST': ['spring-boot-starter-test', 'mockito', 'junit'],
@@ -90,9 +90,11 @@ def execute_analisys():
         dir_name = f'{REPO_PATH}/{PROG_LANG}/{proj_name}'
         desc_file_name = DESC_FILE[PROG_LANG]
         owner = _get_owner_from_repo(f'{REPO_PATH}/{PROG_LANG}/{proj_name}')
-        #desc_paths = os.popen(f'find {dir_name} -name {desc_file_name}').read()
-        #desc_paths = os.popen(f'find {dir_name} -name pom.xml -o -name *.gradle -o -name dependencies.lock').read()
-        desc_paths = os.popen(f'find {dir_name} -name package.json -o -name karma.conf.js').read()
+        desc_files_name = '\' -o -name \''.join(desc_file_name)
+       
+        desc_paths = os.popen(f'find {dir_name} -name \'{desc_files_name}\'').read()
+        #desc_paths = os.popen(f'find {dir_name} -path \'*requirements/*.txt\'')
+
         test_tools = _read_descriptor(desc_paths.split('\n'))
         print(f'Project: {proj_name}')
         print(f'Testing Tools: {test_tools}')
