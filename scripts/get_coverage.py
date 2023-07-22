@@ -5,7 +5,7 @@
 
 # ===== Configuration variables ======
 LIMIT = 130
-PROG_LANG = 'Java'
+PROG_LANG = 'PHP'
 REPO_PATH = '../repos'
 DATASET_PATH = '../dataset/2_filtered_projects.xlsx'
 DATASET_PATH_OUT = f'../dataset/{PROG_LANG}_3_filtered_projects.xlsx'
@@ -18,6 +18,7 @@ import re
 
 def _apply_filters(df):
     if len(PROG_LANG) > 0:
+        #df = df[(df['primaryLanguage'] == PROG_LANG) & (df['name'] == 'phpunit')]
         df = df[df['primaryLanguage'] == PROG_LANG]
     if LIMIT:
         df = df.head(LIMIT)
@@ -52,32 +53,58 @@ def get_cov(owner, name):
     return False
 
 def get_coveralls(owner, name):
+    # é posivel ler o valor direto do SVG que é um xml
+    # https://coveralls.io/repos/github/{owner}/{name}/badge.svg
     pattern =  "<div class='coverage-(.*) coverageText' id='repoShowPercentage'>(.*)%<\/div>"
     url_cov = f'https://coveralls.io/github/{owner}/{name}'
+    print(url_cov)
     match_position = 2
     return get_cov_service(url_cov, pattern, match_position)
 
 def get_codecov(owner, name):
-    pattern = "<td class=\" right aligned\"\nstyle=\"background:linear-gradient\(90deg, (.*) (.*), white (.*);\">\n\n\n(.*)%\n\n<\/td>"
-    url_cov = f'https://codecov.io/gh/{owner}/{name}'
-    match_position = 4
-    return get_cov_service(url_cov, pattern, match_position)
+    #pattern = "<td class=\" right aligned\"\nstyle=\"background:linear-gradient\(90deg, (.*) (.*), white (.*);\">\n\n\n(.*)%\n\n<\/td>"
+    #url_cov = f'https://codecov.io/gh/{owner}/{name}'
+    url_cov = f'https://api.codecov.io/internal/github/{owner}/{name}/coverage/tree?branch=main'
+    
+    r = requests.get(url_cov)
+    if r.status_code == 200 and r.json() and r.json()[0]:
+        coverage = r.json()[0].get('coverage')
+
+        if (coverage != None):
+            print(url_cov)
+            return coverage
+    
+    url_cov = f'https://api.codecov.io/internal/github/{owner}/{name}/coverage/tree?branch=master'
+    
+    r = requests.get(url_cov)
+    if r.status_code == 200 and r.json() and r.json()[0]:
+        coverage = r.json()[0].get('coverage')
+
+        if (coverage != None):
+            print(url_cov)
+            return coverage
+    
+    return False
+    
 
 def get_scrutinizer(owner, name):
     pattern = "<p class=\"covered-data\">\n                    (.*) <sup class=\"coverage-percentage-superscript\">"
     url_cov = f'https://scrutinizer-ci.com/g/{owner}/{name}/code-structure/master/code-coverage'
+    print(url_cov)
     match_position = 1
     return get_cov_service(url_cov, pattern, match_position)
 
 def get_codeclimate(owner, name):
     pattern = "<\/span><\/div><div class=\"measure measure--x2\"><span>(.*)%<\/span><\/div><\/div><\/div>"
     url_cov  = f'https://codeclimate.com/github/{owner}/{name}'
+    print(url_cov)
     match_position = 1
     return get_cov_service(url_cov, pattern, match_position)
 
 def get_codacy(owner, name):
     pattern = "title=\"Percentage of lines of code tested\.\"><\/i><\/p>\n          <p>(.*)% \n            \n  <span class="
     url_cov = f'https://app.codacy.com/manual/{owner}/{name}/dashboard'
+    print(url_cov)
     match_position = 1
     return get_cov_service(url_cov, pattern, match_position)
 
@@ -113,6 +140,7 @@ def execute_analisys():
             cov = row2['coverage']
         
         cov = cov if(cov != None) else get_cov(owner, name)
+        #cov = get_cov(owner, name)
 
         print(f'{owner}/{name}: {cov}')
         row['coverage'] = cov
