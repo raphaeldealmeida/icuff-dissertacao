@@ -54,12 +54,21 @@ def get_cov(owner, name):
 
 def get_coveralls(owner, name):
     # é posivel ler o valor direto do SVG que é um xml
-    # https://coveralls.io/repos/github/{owner}/{name}/badge.svg
-    pattern =  "<div class='coverage-(.*) coverageText' id='repoShowPercentage'>(.*)%<\/div>"
-    url_cov = f'https://coveralls.io/github/{owner}/{name}'
+    # url_antiga = https://coveralls.io/github/{owner}/{name}
+    # pattern_antigo =  "<div class='coverage-(.*) coverageText' id='repoShowPercentage'>(.*)%<\/div>"
+    pattern1 = '<text\\b[^>]*>\\s*(?:(?!coverage)[^<])*\\s*<\/text>'
+    url_cov = f'https://coveralls.io/repos/github/{owner}/{name}/badge.svg'
     print(url_cov)
-    match_position = 2
-    return get_cov_service(url_cov, pattern, match_position)
+    match_position = 0
+    tag = get_cov_service(url_cov, pattern1, match_position)
+    pattern2 = r'<text[^>]*>(.*?)<\/text>'
+    resultado = re.search(pattern2, tag)
+
+    if(resultado):
+        texto_extraido = resultado.group(1)
+        return texto_extraido
+    else:
+        return False
 
 def get_codecov(owner, name):
     #pattern = "<td class=\" right aligned\"\nstyle=\"background:linear-gradient\(90deg, (.*) (.*), white (.*);\">\n\n\n(.*)%\n\n<\/td>"
