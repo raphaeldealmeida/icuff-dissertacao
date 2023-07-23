@@ -66,35 +66,18 @@ def get_coveralls(owner, name):
 
     if(resultado):
         texto_extraido = resultado.group(1)
-        return texto_extraido
+        return texto_extraido if texto_extraido != 'unknown' else False
     else:
         return False
 
 def get_codecov(owner, name):
-    #pattern = "<td class=\" right aligned\"\nstyle=\"background:linear-gradient\(90deg, (.*) (.*), white (.*);\">\n\n\n(.*)%\n\n<\/td>"
-    #url_cov = f'https://codecov.io/gh/{owner}/{name}'
-    url_cov = f'https://api.codecov.io/internal/github/{owner}/{name}/coverage/tree?branch=main'
-    
-    r = requests.get(url_cov)
-    if r.status_code == 200 and r.json() and r.json()[0]:
-        coverage = r.json()[0].get('coverage')
-
-        if (coverage != None):
-            print(url_cov)
-            return coverage
-    
-    url_cov = f'https://api.codecov.io/internal/github/{owner}/{name}/coverage/tree?branch=master'
-    
-    r = requests.get(url_cov)
-    if r.status_code == 200 and r.json() and r.json()[0]:
-        coverage = r.json()[0].get('coverage')
-
-        if (coverage != None):
-            print(url_cov)
-            return coverage
-    
-    return False
-    
+    query = {"query":"\n    query GetRepoCoverage($name: String!, $repo: String!, $branch: String!) {\n      owner(username:$name){\n        repository: repositoryDeprecated(name:$repo){\n          branch(name:$branch) {\n            name\n            head {\n              yamlState\n              totals {\n                percentCovered\n                lineCount\n                hitsCount\n              }\n            }\n          }\n        }\n      }\n    }\n  ",
+             "variables":{"name":owner,"repo":name,"branch":"master"}}
+    pattern = "\"percentCovered\"\: (.*)\,"
+    url_cov = "https://api.codecov.io/graphql/gh"
+    print(url_cov)
+    match_position = 1
+    return False # get_cov_service(url_cov, pattern, match_position,query)
 
 def get_scrutinizer(owner, name):
     pattern = "<p class=\"covered-data\">\n                    (.*) <sup class=\"coverage-percentage-superscript\">"
@@ -111,16 +94,18 @@ def get_codeclimate(owner, name):
     return get_cov_service(url_cov, pattern, match_position)
 
 def get_codacy(owner, name):
-    pattern = "title=\"Percentage of lines of code tested\.\"><\/i><\/p>\n          <p>(.*)% \n            \n  <span class="
-    url_cov = f'https://app.codacy.com/manual/{owner}/{name}/dashboard'
+    #pattern = "<\/span><\/div><div class=\"measure measure--x2\"><span>(.*)%<\/span><\/div><\/div><\/div>"
+    pattern = "\"coveragePercentage\"\:(.*)\,\"coveragePercentageWithDecimals\""
+    #url_cov  = f'https://codeclimate.com/github/{owner}/{name}'
+    url_cov  = f'https://app.codacy.com/api/v3/analysis/organizations/gh/{owner}/repositories/{name}'
     print(url_cov)
     match_position = 1
     return get_cov_service(url_cov, pattern, match_position)
 
 
-def get_cov_service(url_cov, pattern, match_position):
+def get_cov_service(url_cov, pattern, match_position, payload = {}):
     try:
-        r = requests.get(url_cov)
+        r = requests.get(url_cov) if payload == {} else requests.post(url_cov, json=payload)
         m = re.search(pattern, r.text)
         if (m):
             return m.group(match_position)
