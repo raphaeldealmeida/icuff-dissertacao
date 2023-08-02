@@ -5,7 +5,7 @@
 
 # ===== Configuration variables ======
 LIMIT = 130
-PROG_LANG = 'PHP'
+PROG_LANG = 'Java'
 REPO_PATH = '../repos'
 DATASET_PATH = '../dataset/2_filtered_projects.xlsx'
 DATASET_PATH_OUT = f'../dataset/{PROG_LANG}_3_filtered_projects.xlsx'
@@ -133,8 +133,8 @@ def execute_analisys():
         for row2 in df2.T.to_dict().values():
             cov = row2['coverage']
         
-        cov = cov if(cov != None) else get_cov(owner, name)
-        #cov = get_cov(owner, name)
+        # cov = cov if(cov != None) else get_cov(owner, name)
+        cov = get_cov(owner, name)
 
         print(f'{owner}/{name}: {cov}')
         row['coverage'] = cov

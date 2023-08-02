@@ -11,20 +11,10 @@ pip install -r requirements.txt --user
 
 Alterar a variável ```PROG_LANG``` ao executar o script.
 
-
-
 create_final_list.py
 cloner.py
 count_test_files.py
+test_tool_by_descriptor.py
+search_mock_use.py
 
-
-
-
-
-<!-- https://github.com/borgbackup/borg/tree/master/src/borg/testsuite
-
-@pytest.fixture()
-from typing import Optional
-from unittest.mock import patch
-
-import pytest -->
+dep_origins.py

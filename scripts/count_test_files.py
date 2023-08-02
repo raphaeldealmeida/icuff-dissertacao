@@ -4,10 +4,9 @@
 # Description: Script que verifica quantos arquivos de teste o projeto possui
 
 # ===== Configuration variables ======
-PROG_LANG = 'Java'
+PROG_LANG = 'PHP'
 REPO_PATH = '../repos'
-DATASET_PATH = '../dataset/projects_final.xlsx'
-TEST_TOOL_PATH = '../docs/testing_frameworks.xlsx'
+DATASET_PATH = '../dataset/projects_2022.2.xlsx'
 FILE_EXT = {
     'Python': ['*test_*.py'],
     'Ruby': ['*_test.rb', '*_spec.rb'],
@@ -41,9 +40,16 @@ def _get_proj_names():
 
 def _count_test_files(dir_name):
     file_exts = FILE_EXT[PROG_LANG]
+
     result = {}
     for file_ext in file_exts:
-        temp_result = os.popen(f'find {dir_name} -name "{file_ext}" | wc -l').read()
+        
+        if (PROG_LANG == 'Python'): 
+            #temp_result = os.popen(f'cd {dir_name} && git grep -l -E "MagicMock" -- \'*.py\' | wc -l').read()
+            temp_result = os.popen(f'cd {dir_name} && git grep -l -E "^(import (pytest|unittest)|from (pytest|unittest))" -- \'*.py\' | wc -l').read()
+        else:
+            temp_result = os.popen(f'find {dir_name} -name "{file_ext}" | wc -l').read()
+
         result[file_ext] = int(temp_result)
     return result
 

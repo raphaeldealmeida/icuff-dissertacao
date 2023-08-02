@@ -4,12 +4,14 @@
 # Description: Verifica se o código fonte da dependencia está no projeto
 
 # ===== Configuration variables ======
-PROG_LANG = 'Java'
+PROG_LANG = 'JavaScript'
 DATASET_PATH_MOCK_FILES = f'../dataset/{PROG_LANG}_mock_files.csv'
 REPO_PATH = '../repos'
 FILE_EXT = {
     'PHP': '.php',
-    'Java': '.java'
+    'Java': '.java',
+    'Python': '.py',
+    'JavaScript': '.js',
 }
 
 # =====================================
@@ -33,14 +35,21 @@ def _clean_dep(raw_dep):
     raw_dep = raw_dep.replace('::class', '').replace("'", '').replace('"', '').replace('.class', '')
     raw_dep = raw_dep.split("\\")[-1]
     #print(raw_dep)
-    return False if raw_dep == 'None' else raw_dep
+    return False if raw_dep == 'None' else raw_dep.replace('`', r'\`').replace('$', r'\$').replace('*', r'\*')
 
 def _type_of_dep(path, dep):
     file_ext = FILE_EXT[PROG_LANG]
     dep = _clean_dep(dep)    
+
+
     if (dep == False):
         return 'indefinida'
-    return 'interno' if (int(os.popen(f'grep --include=\*{file_ext} -rnw "{path}" -e "class {dep}" -o -e "interface {dep}" | wc -l').read()) == 1) else 'externo'
+    if (PROG_LANG == 'Python'):
+        return 'interno' if (len(dep.split(".")) > 1 and dep.split(".")[0] in path ) else ('externo' if dep.split(".")[0] else 'indefinida')
+
+    else:
+        print(f'grep --include=\*{file_ext} -rnw "{path}" -e "class {dep}" -o -e "interface {dep}" | wc -l || 0')
+        return 'interno' if (int(os.popen(f'grep --include=\*{file_ext} -rnw "{path}" -e "class {dep}" -o -e "interface {dep}" | wc -l || 0').read()) == 1) else 'externo'
 
 
 def _write_csv(result):

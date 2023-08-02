@@ -4,9 +4,9 @@
 # Description: Procura arquivos de teste com a palavra mock
 
 # ===== Configuration variables ======
-PROG_LANG = 'Python'
+PROG_LANG = 'JavaScript'
 REPO_PATH = '../repos'
-DATASET_PATH = '../dataset/projects_2022.xlsx'
+DATASET_PATH = '../dataset/projects_2022.2.xlsx'
 DATASET_PATH_MOCK_FILES = f'../dataset/{PROG_LANG}_mock_files.csv'
 DATASET_PATH_MOCK_FILES2 = f'../dataset/{PROG_LANG}_RQ2.csv'
 
@@ -26,12 +26,13 @@ MOCK_TOOLS = {
     'PHP': ["createMock[^(]*\(([^)]*)\)", "getMock[^(]*\(([^)]*)\)", "getMockBuilder[^(]*\(([^)]*)\)", "getMockForTrait[^(]*\(([^)]*)\)", "getMockForAbstractClass[^(]*\(([^)]*)\)", "getMockFromWsdl[^(]*\(([^)]*)\)", "vfsStream::setup[^(]*\(([^)]*)\)","prophesize[^(]*\(([^)]*)\)","::mock[^(]*\(([^)]*)\)", "::spy[^(]*\(([^)]*)\)"],
     'TEST': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)"],
     'Java': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)"],
-    'Python': ["mock.patch[^(]*\(([^)]*)\)", "mock.call[^(]*\(([^)]*)\)", "mock.mock_open[^(]*\(([^)]*)\)","mock.patch.object[^(]*\(([^)]*)\)"],
+    'JavaScript': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)", "nock[^(]*\(([^)]*)\)", "proxyquire[^(]*\(([^)]*)\)", 'sinon.createStubInstance[^(]*\(([^)]*)\)', 'jest.requireActual[^(]*\(([^)]*)\)'],
+    'Python': ["mock.patch[^(]*\(([^)]*)\)", "mock.call[^(]*\(([^)]*)\)", "mock.mock_open[^(]*\(([^)]*)\)","mock.patch.object[^(]*\(([^)]*)\)", "freeze_time[^(]*\(([^)]*)\)", "httpretty.register_uri[^(]*\(([^)]*)\)", "requests_mock.get[^(]*\(([^)]*)\)", "requests_mock.Mocker[^(]*\(([^)]*)\)"],
 
 }
 
 FILE_EXT = {
-    'Python': ['*test_*.py'],
+    'Python': ['*.py'],
     'Ruby': ['*_test.rb', '*_spec.rb'],
     'JavaScript': ['*Spec.js', '*Test.js', '*spec.js', '*test.js', '*tests.js'],
     'PHP' : ['*test.php', '*Test.php', 'Spec.php'],
@@ -50,7 +51,10 @@ def _get_test_files(dir_name):
     file_exts = FILE_EXT[PROG_LANG]
     result = []
     for file_ext in file_exts:
-        temp_result = os.popen(f'find {dir_name} -name "{file_ext}"').read()
+        if (PROG_LANG == 'Python'):
+            temp_result = os.popen(f'grep -r --include=\'*.py\' -l -E "^(import (pytest|unittest)|from (pytest|unittest))" {dir_name}').read()
+        else:
+            temp_result = os.popen(f'find {dir_name} -name "{file_ext}"').read()
         result = result + temp_result.split('\n')
     result = list(filter(lambda x : x != '', result))
     
@@ -176,5 +180,5 @@ def execute_rq1():
 
 
 if __name__ == "__main__":
-    #execute_analisys()
-    execute_rq1()
+    execute_analisys()
+    #execute_rq1()

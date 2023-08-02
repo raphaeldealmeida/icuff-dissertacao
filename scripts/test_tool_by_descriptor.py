@@ -4,7 +4,7 @@
 # Descripton: Verifica em cada projeto, quais ferramentas de teste utilizada pelos projetos
 
 # ===== Configuration variables ======
-PROG_LANG = 'Python'
+PROG_LANG = 'Java'
 REPO_PATH = '../repos'
 DATASET_PATH = '../dataset/projects_final.xlsx'
 DATASET_PATH_TEST_PROJECTS = f'../dataset/{PROG_LANG}_projects_tests_tools.csv'
@@ -20,7 +20,7 @@ DESC_FILE = {
 TEST_TOOLS = {
     'Ruby': ['rspec', 'minitest', 'test-unit', 'cucumber-ruby'],
     'Python': ['robot', 'pytest', 'unittest', 'mongomock', 'requests_mock', 'doublex', 'freezegun', 'httmock', 'httpretty', 'mocket', 'responses', 'vcrpy', 'pytest-vcr', 'pytest-recording', 'factory_boy', 'mixer', 'model_mommy', 'model_bakery', 'fake2db', 'Faker', 'mimesis', 'radar', ],
-    'JavaScript': ['jest', 'jasmine', 'mocha', 'puppeteer', 'cypress', 'qunit', 'tape', 'mockjs', 'ava', 'meteor-node-stubs', 'hapi/lab', 'ckeditor/ckeditor5-dev-tests'],
+    'JavaScript': ['jest', 'jasmine', 'mocha', 'puppeteer', 'cypress', 'qunit', 'tape', 'mockjs', 'ava', 'meteor-node-stubs', 'hapi/lab', 'ckeditor/ckeditor5-dev-tests', 'sinon', 'testdouble', 'proxyquire', 'nock'],
     'PHP': ['phpunit', 'codeception', 'phpspec', 'mockery', 'prophecy', 'phpunit-easymock', 'codeception/stub', 'php-mock', 'vfsstream'],
     'TEST': ['spring-boot-starter-test', 'mockito', 'junit'],
     'Java': ['powermock', 'mockito', 'easymock', 'jmock', 'javafaker', 'hoverfly-java', 'com.intuit.karate', 'needle4j', 'beanmother-core', 'fixture-factory', 'jfairy', 'wiremock', 'mock-server', 'jmockit']
