@@ -4,9 +4,9 @@
 # Descripton: Verifica em cada projeto, quais ferramentas de teste utilizada pelos projetos
 
 # ===== Configuration variables ======
-PROG_LANG = 'Java'
+PROG_LANG = 'JavaScript'
 REPO_PATH = '../repos'
-DATASET_PATH = '../dataset/projects_final.xlsx'
+DATASET_PATH = '../dataset/projects_2022.2.xlsx'
 DATASET_PATH_TEST_PROJECTS = f'../dataset/{PROG_LANG}_projects_tests_tools.csv'
 
 DESC_FILE = {

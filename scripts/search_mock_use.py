@@ -26,7 +26,7 @@ MOCK_TOOLS = {
     'PHP': ["createMock[^(]*\(([^)]*)\)", "getMock[^(]*\(([^)]*)\)", "getMockBuilder[^(]*\(([^)]*)\)", "getMockForTrait[^(]*\(([^)]*)\)", "getMockForAbstractClass[^(]*\(([^)]*)\)", "getMockFromWsdl[^(]*\(([^)]*)\)", "vfsStream::setup[^(]*\(([^)]*)\)","prophesize[^(]*\(([^)]*)\)","::mock[^(]*\(([^)]*)\)", "::spy[^(]*\(([^)]*)\)"],
     'TEST': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)"],
     'Java': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)"],
-    'JavaScript': [".mock[^(]*\(([^)]*)\)", "mock[^(]*\(([^)]*)\)", "spy[^(]*\(([^)]*)\)", "nock[^(]*\(([^)]*)\)", "proxyquire[^(]*\(([^)]*)\)", 'sinon.createStubInstance[^(]*\(([^)]*)\)', 'jest.requireActual[^(]*\(([^)]*)\)'],
+    'JavaScript': [".mock*\(([^)]*)\)", "mock*\(([^)]*)\)", "jest\.fn*\(([^)]*)\)", "nock*\(([^)]*)\)", "proxyquire*\(([^)]*)\)", 'sinon\.createStubInstance*\(([^)]*)\)', 'jest\.requireActual*\(([^)]*)\)'],
     'Python': ["mock.patch[^(]*\(([^)]*)\)", "mock.call[^(]*\(([^)]*)\)", "mock.mock_open[^(]*\(([^)]*)\)","mock.patch.object[^(]*\(([^)]*)\)", "freeze_time[^(]*\(([^)]*)\)", "httpretty.register_uri[^(]*\(([^)]*)\)", "requests_mock.get[^(]*\(([^)]*)\)", "requests_mock.Mocker[^(]*\(([^)]*)\)"],
 
 }
@@ -93,7 +93,7 @@ def _get_owner_from_repo(path_repo):
 def execute_analisys():
     result = []
     proj_names = _get_proj_names()
-    
+    print(proj_names)
     for proj_name in proj_names:
         test_files = _get_test_files(f'{REPO_PATH}/{PROG_LANG}/{proj_name}')
         owner = _get_owner_from_repo(f'{REPO_PATH}/{PROG_LANG}/{proj_name}')
@@ -181,4 +181,4 @@ def execute_rq1():
 
 if __name__ == "__main__":
     execute_analisys()
-    #execute_rq1()
+    # execute_rq1()

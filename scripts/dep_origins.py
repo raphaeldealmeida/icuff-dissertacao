@@ -46,7 +46,15 @@ def _type_of_dep(path, dep):
         return 'indefinida'
     if (PROG_LANG == 'Python'):
         return 'interno' if (len(dep.split(".")) > 1 and dep.split(".")[0] in path ) else ('externo' if dep.split(".")[0] else 'indefinida')
+    if (PROG_LANG == 'JavaScript'):
 
+        if (dep.startswith('/') or  dep.startswith('./') or dep.startswith('../') or dep.startswith('@')):
+            return 'interno' 
+        if (dep.startswith('http')):
+            return 'externo' 
+        if (dep.startswith('()') or dep.startswith('function') or dep.startswith('{')):
+            return 'indefinida' 
+        return 'interno' if (int(os.popen(f'grep --include=\*{file_ext} -rnw "{path}" -e "class {dep}" -o -e "interface {dep}" | wc -l || 0').read()) == 1) else 'externo'
     else:
         print(f'grep --include=\*{file_ext} -rnw "{path}" -e "class {dep}" -o -e "interface {dep}" | wc -l || 0')
         return 'interno' if (int(os.popen(f'grep --include=\*{file_ext} -rnw "{path}" -e "class {dep}" -o -e "interface {dep}" | wc -l || 0').read()) == 1) else 'externo'
