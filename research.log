@@ -1,0 +1,205 @@
+gh run view --job=30788640339 -R sebastianbergmann/phpunit
+gh run view --log --job=30788640339 -R sebastianbergmann/phpunit
+
+## Pegar o CI Workflow
+gh workflow list  -R sebastianbergmann/phpunit --json=id,name,path,state --jq 'sort_by(.id) | reverse | .[] | select(.state == "active" and .name == "CI" and .path != null and .path != "")'
+gh workflow list  -R apache/airflow --json=id,name,path,state --jq 'sort_by(.id) | reverse | .[] | select(.state == "active" and .name == "CI" and .path != null and .path != "")'
+
+	
+6794244
+
+gh run list -R google/guava
+gh run list -R apache/airflow
+
+
+## Pega os Workflows
+gh run list -R google/guava --json=status,workflowName,name,event,displayTitle,databaseId,startedAt --jq '.[] | select(.workflowName == "CI" and .status == "completed")'
+gh run list -R apache/airflow --json=status,workflowName,name,event,displayTitle,databaseId,startedAt --jq '.[] | select(.workflowName == "CI" and .status == "completed")'
+
+11079422531
+
+## Pega o job
+gh run view 11079422531 -R google/guava --json=jobs --jq '.jobs[] | {databaseId, step: (.steps[] | select(.status == "completed" and .conclusion == "success" and (.name | test("test"; "i"))))}'
+
+jobid 30788441295 
+11199521349
+
+
+## Pega o log 
+gh run view --log --job=30788441295 -R google/guava
+gh run view --log --job=11199521349 -R apache/airflow
+
+
+11199653005
+
+
+gh run view 11199440236 --json jobs | jq '.jobs[] | select(.name | test("test"; "i"))'
+
+gh api repos/dask/dask/commits --jq '.[] | select(.commit.status.state == "success") | {sha: .sha, message: .commit.message}'
+
+
+gh workflow view 
+
+Diga quantos testes foram realizados, assertions, skipped, falhas e tempo de execução (em segundos)
+Retorne em JSON com o seguinte padrão
+{
+  "tests": X,
+  "assertions": X,
+  "skipped": X,
+  "failures": X,
+  "elapsed time": X
+}
+
+Arquivo de log
+====================
+
+
+
+###Obter commits do master
+gh api graphql -F owner='google' -F name='guava' -f query='query($name: String!, $owner: String!) {
+  repository(name: $name, owner: $owner) {
+    defaultBranchRef {
+      target {
+        ... on Commit {
+          history {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}' --jq '.data.repository.defaultBranchRef.target.history.totalCount'
+
+==========================================
+
+As can be noted, the relational (SQL) model is the most commonly used (78.17% of the
+projects use a relational DBMS). Still, the non-relational (NoSQL) model is also present.
+
+We also found evidence of Ignite being adopted by 2.17% of the projects in both categories:
+one project uses it as a relational database, and three projects use it as a non-relational
+database.
+
+We also observed that MySQL, PostgreSQL, and Oracle are among the most used DBMSs in the DB-Engines ranking (DB-ENGINES, 2022), even considering the different
+contexts between this ranking and our research.
+
+On the other hand, H2 (Hypersonic 2) is our second most adopted DBMS and occupies the 47th position in this ranking. It might
+have happened due to the simplicity of integration of H2 in Java projects.
+
+Given the 46 DBMSs found, we observed that the adopted DBMSs are distributed
+as follows: 22 relational DBMSs (47.82%), 23 non-relational DBMSs (50.00%), and one
+multi-model DBMS (Ignite – 2.17%). This information reinforces the increasing trend
+of non-relational model adoption among Java projects.
+# Explicação/comentário do que foi observado
+According to Davoudian et. al (DAVOUDIAN et al., 2018), non-relational DBMSs are not designed to replace re-
+lational DBMSs but as a solution to the gaps regarding the need for scalability and availability that certain distributed applications require.
+# Figura ilustrativa do que foi observado
+Another fact we identified in
+our research that corroborates the authors’ statement is presented in the Venn Diagram
+shown in Figure 5, which shows the number of projects classified by the type of data
+model they adopt.
+===
+Out of the 197 projects in which we found evidence of the use of DBMSs, 56 adopt only
+the relational model, and 43 adopt only the non-relational model. However, we found an intersection where both models are adopted (98 projects). Thus, 49.75% of these projects
+adopt both data models, while 50.25% use only one of the models. The understanding
+that both models can complement each other is reflected in about half of the projects
+that use a DBMS in our corpus.
+===
+Out of the 50 DBMS we searched for in our corpus, we did not find evidence of
+usage of 4 of them: FileMaker, RiakKV, Marklogic, and Virtuoso. Marklogic and Vir-
+tuoso are multi-model, while FileMaker is a relational DBMS, and RiakKV is a key-
+value DBMS (non-relational). We suspect that the absence of Marklogic, RiakKV, and
+Virtuoso in our corpus is related to their low popularity. In fact, in the DB-Engines
+ranking (DB-ENGINES, 2022), they appear at the 52nd, 69th, and 75th positions, re-
+spectively2 . Regarding the absence of FileMaker, we have not identified any explanation
+from the available data, as it is a well-established Database Management System, holding
+the 23rd position in the aforementioned ranking.
+
+Another interesting aspect concerns analyzing the characterization of the project do-
+mains (see Section 3.1) regarding adopting relational, non-relational, or both models.
+The intention of this analysis was to discover which data models are mostly used in the various
+project domains of our corpus. We found 21 projects from the infrastructure management
+domain using multi-models, whereas only 7 projects used relational models and 4 used
+non-relational models. The infrastructure management domain showed the highest adop-
+tion of multi-model DBMSs. As examples, the Apache’s Dolphinscheduler project showed
+adoption of MySQL, H2, PostgreSQL, Oracle, MS SQL Server, IBM DB2, Hive, Click-
+House, Redis, Ehcache, and HBase; the Netflix’s Conductor project showed adoption of MySQL, PostgreSQL, Redis, Elasticsearch, and Cassandra; and the Apache’s Beam
+project showed adoption of MySQL, PostgreSQL, Hive, Google BigQuery, ClickHouse,
+Snowflake, Redis, Ehcache, MongoDB, Elasticsearch, Google Cloud Data Store, Hazel-
+cast, HBase, Cassandra, DynamoDB, Solr, and InfluxDB.
+We also observed that multi-model DBMSs surpass relational and non-relational mod-
+els in the Software development, Program analysis, Security, HPC, Monitoring, Automa-
+tion, File management, and Collaboration domains.
+===
+Thus, out of the 21 domains in our
+corpus, the usage of multi-model DBMSs is predominant in 9, corresponding to almost
+43%. This discovery reinforces the trend of using more than one distinct data model
+and that they can complement each other (SAHATQIJA et al., 2018). For instance, all
+projects from the ERP, Cryptocurrency, and E-commerce domains use only multi-model
+DBMSs. We also observed that some specific domains use only one of the models. In this
+sense, projects from the SCM and Personal Management domains only use non-relational
+DBMSs, and projects from the Operating system domain only use relational models.
+====================
+Achados
+- SQL é mais usado com 78%, porém noSQL está presente
+- Ignite que é SQL/NoSQL está em 2%
+- MySQL, PostgreSQL, and Oracle são os mais utilizados também no DB-ENGINES
+- H2 é o segundo mais usado, porém no DB-ENGINES está em 47th
+- 22 SQL (47.82%), 23 noSQL (50.00%), 1 Multi (Ignite – 2.17%) retornça a tendencia de adoção noSQL
+- Dos 197 apenas SQL 56. apenas noSQL 43. 98 ambos. Os modelos podem se completar
+- Não acharam 4 FileMaker, RiakKV, Marklogic, and Virtuoso
+- 21 projects infrastructure management multi-models 7 projects used relational models and 4 used non-relational models.
+- multi-model Software development, Program analysis, Security, HPC, Monitoring, Automation, File management, and Collaboration domains
+- multi-model 43%.
+- ERP, Cryptocurrency, and E-commerce usam APENAS multi-model
+- SCM and Personal Management apenas noSQL
+- Operating system domain apenas SQL
+====
+Análises sugeridas
+- Mais utilizado
+- Ferramentas não utilizadas
+- Comparar com estrelas e downloads
+- Identificar alguma discrepência de mais usado e essas estatisticas
+- Separar em test runner com recurso de mocking e mocking tool
+- Domínio da aplicação
+
+
+mockjs
+meteor-node-stubs
+
+
+ [15–18]
+ e [10, 20–22].
+ 
+ nt [23, 24]. 
+ 
+Larios Vargas et al. [10]
+popularity, release frequency, or documentation
+
+evita poor documentation, low maintenance activity and/or no long-term support plan, no stable releases,
+security vulnerabilities reported but not fixed quickly, and negative reputation in the community.
+
+
+: Do I have a positive
+experience using this library? What is the overall perception of the
+library among its users? Is it a popular library? How active is the
+community behind the library providing support and fixing bugs?
+How mature and stable is the library? Does the library have proper
+documentation? Is the library well-maintained? Does the library
+have an appropriate license for my project? Do budget and time
+impose any constraints?
+
+https://github.com/spesmilo/electrum/blob/b7a9e4cf7e1705f94e6245389e9531d3d2ac4874/tests/test_commands.py#L88
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+antecedents,consequents,support,confidence,lift
+"mocha,jasmine",ava,0.102,1,2.19
+"jest,jasmine",ava,0.102,0.929,2.033
+"jest,puppeteer",ava,0.102,0.867,1.898
+jasmine,ava,0.165,0.808,1.769
+"jest,mocha",ava,0.157,0.8,1.752
+puppeteer,ava,0.157,0.714,1.564
+"ava,puppeteer",jest,0.102,0.65,1.619
+"ava,jest",mocha,0.157,0.645,1.366
+"ava,mocha",jest,0.157,0.645,1.607
+"ava,jasmine",jest,0.102,0.619,1.542
+"ava,jasmine",mocha,0.102,0.619,1.31
+jest,ava,0.244,0.608,1.331

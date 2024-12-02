@@ -1,0 +1,161 @@
+PHP
+	phpunit
+	    createStub(string $type) 
+	    createStubForIntersectionOfInterfaces(array $interfaces)
+	    createConfiguredStub(SomeInterface::class,['doSomething'=>'foo','doSomethingElse' => 'bar',],)
+	    createMock(string $type)
+	    createMockForIntersectionOfInterfaces(array $interfaces)
+	    createConfiguredMock(SomeInterface::class,['doSomething'=>'foo','doSomethingElse' => 'bar',],)
+	    getMockForAbstractClass(AbstractClass::class)
+	    getMockForTrait(AbstractTrait::class)
+	    getMockFromWsdl(__DIR__ . '/HelloService.wsdl')
+
+	    getMockBuilder(SomeClass::class)
+	    setMockClassName($name)
+	    
+	    //Chamado de mockbuilder
+	    //getMock()
+	    //getMockForAbstractClass()
+	    //getMockForTrait()
+
+
+	 mockery
+	    [Mockery|m] ::mock('service') 174 + 228
+	    [Mockery|m]::spy('MyClass', 'interfaces',)
+	    [Mockery|m]::namedMock('MyClass', 'interfaces',)
+
+	vfsStream
+	    vfsStream::setup()
+	    vfsStream::inspect()
+	    vfsStream::newFile()
+	    vfsStream::newDirectory()
+	    vfsStream::url()
+	    vfsStream::create()
+	    vfsStreamFile()
+	    vfsStreamDirectory()
+	    vfsStreamContent::chmod()
+	    vfsStreamContent::chown()
+	    vfsStreamContent::chgrp()
+	    vfsStream::copyFromFileSystem()
+	    vfsStream::newBlock()
+
+	phpspec
+	    extends ObjectBehavior ->beADoubleOf('Markdown\Reader')
+		 ObjectBehavior function XXX (Markdown) ##not implemented
+
+	prophecy
+		$this->prophet->prophesize(MockClass)
+		$prophecy->willExtend(MockClass)
+		$prophecy->willImplement(MockClass)
+		
+	phpunit-easymock
+		$this->easyMock(MockClass) # use EasyMock\EasyMock;
+
+	codeception/stub
+		Codeception\Stub::make(MockClass)
+		Codeception\Test\Feature\Stub::make(MockClass)
+		Codeception\Test\Feature\Stub::makeEmpty(MockClass)
+		Codeception\Test\Feature\Stub::makeEmptyExcept(MockClass)
+		Codeception\Test\Feature\Stub::construct(MockClass)
+		Codeception\Test\Feature\Stub::constructEmpty(MockClass)
+		Codeception\Test\Feature\Stub::constructEmptyExcept(MockClass)
+
+	php-mock
+		use phpmock\MockBuilder  # new MockBuilder() \ ->setName(mock_function)
+Python
+	pytest
+		@pytest.fixture
+	unittest
+		@mock.patch.object()
+		MagicMock()
+	mongomock
+		@mongomock.patch()
+	requests_mock
+	 	requests_mock.get()
+		requests_mock.Mocker() 
+		@requests_mock.Mocker()
+	doublex
+	freezegun
+		@freeze_time
+	httmock
+		@urlmatch()
+		@all_requests()
+	httpretty
+		@httpretty.activate
+		httpretty.register_uri()
+	mocket
+		@mocketize
+		with Mocketizer()
+	responses
+		responses.patch()
+	vcrpy
+		@vcr.use_cassette(
+	pytest-vcr
+	pytest-recording
+	factory_boy
+	mixer
+	model_mommy
+	model_bakery
+	fake2db
+	Faker
+	mimesis
+	radar
+Java
+	powermock # https://www.javadoc.io/doc/org.powermock
+		PowerMock.createMock()
+		PowerMock.createMockAndExpectNew()
+		PowerMock.createNiceMock()
+		PowerMock.createNiceMockAndExpectNew()
+		PowerMock.createNicePartialMock()
+		PowerMock.createPartialMock()
+		PowerMockito.mockStatic(MockClass.class)
+		PowerMockito.mock(BufferedInputStream.class)
+		PowerMockito.whenNew(BufferedInputStream.class)
+	mockito
+		import static org.mockito.Mockito.mock; mock()
+		Mockito.mock()
+	easymock
+		EasyMock.createMock()
+		@Mock()
+  		private Collaborator mock;
+	jmock
+		new Mockery()
+		Mockery.mock()
+	hoverfly-java
+	com.intuit.karate
+	needle4j
+	beanmother-core
+	fixture-factory
+	jfairy
+	wiremock
+		@WireMockTest
+	mock-server
+	jmockits
+
+JavaScript
+	jest
+		jest.mock()
+	jasmine
+		jasmine.Ajax.withMock()
+	mocha
+	puppeteer
+	cypress
+	qunit
+	tape
+	 t.equal()
+	mockjs
+	ava
+	meteor-node-stubs
+	hapi/lab
+	ckeditor/ckeditor5-dev-tests
+	sinon
+		sinon.spy()
+    	sinon.mock()
+	testdouble # https://github.com/testdouble/testdouble.js/
+		td.replace()
+		td.constructor()
+		d.instance()
+	proxyquire
+	 proxyquire()
+	nock
+		nock()

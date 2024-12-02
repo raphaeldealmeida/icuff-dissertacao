@@ -1,0 +1,4 @@
+index,antecedents,consequents,support,confidence,lift
+7,responses,unittest,0.403,0.903,1.152
+5,pytest,unittest,0.59,0.863,1.101
+4,unittest,pytest,0.59,0.752,1.101

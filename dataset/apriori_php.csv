@@ -1,0 +1,12 @@
+index,antecedents,consequents,support,confidence,lift
+8,mockery,phpunit,0.488,1.0,1.024
+23,vfsstream,phpunit,0.442,1.0,1.024
+17,phpspec,phpunit,0.419,1.0,1.024
+18,prophecy,phpspec,0.419,1.0,2.389
+19,phpspec,prophecy,0.419,1.0,2.389
+22,prophecy,phpunit,0.419,1.0,1.024
+119,"prophecy,phpunit",phpspec,0.419,1.0,2.389
+120,"prophecy,phpspec",phpunit,0.419,1.0,1.024
+121,"phpunit,phpspec",prophecy,0.419,1.0,2.389
+122,prophecy,"phpunit,phpspec",0.419,1.0,2.389
+123,phpspec,"prophecy,phpunit",0.419,1.0,2.389

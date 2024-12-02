@@ -1,0 +1,45 @@
+
+PHP,mailcow,mailcow-dockerized,['phpunit']
+PHP,akaunting,akaunting,[]
+PHP,doctrine,annotations,['phpunit']
+PHP,aws,aws-sdk-php,['phpunit']
+PHP,CachetHQ,Cachet,"['phpunit', 'mockery']"
+PHP,cakephp,cakephp,"['phpunit', 'vfsstream']"
+PHP,bcit-ci,CodeIgniter,"['phpunit', 'vfsstream']"
+PHP,doctrine,common,['phpunit']
+PHP,composer,composer,['phpunit']
+PHP,owncloud,core,"['phpunit', 'vfsstream']"
+PHP,phalcon,cphalcon,['phpunit']
+PHP,doctrine,dbal,['phpunit']
+PHP,firefly-iii,firefly-iii,[]
+PHP,laravel,framework,"['phpunit', 'mockery']"
+PHP,getgrav,grav,[]
+PHP,symfony,http-kernel,['phpunit']
+PHP,humhub,humhub,[]
+PHP,invoiceninja,invoiceninja,['mockery']
+PHP,invoiceninja,invoiceninja2,[]
+PHP,Laravel-Lang,lang,[]
+PHP,laravel,laravel,[]
+PHP,magento,magento2,['phpunit']
+PHP,matomo-org,matomo,['phpunit']
+PHP,mautic,mautic,['phpunit']
+PHP,octobercms,october,[]
+PHP,opencart,opencart,[]
+PHP,doctrine,orm,['phpunit']
+PHP,phacility,phabricator,[]
+PHP,phan,phan,[]
+PHP,FriendsOfPHP,PHP-CS-Fixer,"['phpunit', 'vfsstream']"
+PHP,phpmyadmin,phpmyadmin,['phpunit']
+PHP,sebastianbergmann,phpunit,"['phpunit', 'php-mock']"
+PHP,squizlabs,PHP_CodeSniffer,[]
+PHP,PrestaShop,PrestaShop,[]
+PHP,rectorphp,rector,['phpunit']
+PHP,nextcloud,server,"['phpunit', 'vfsstream']"
+PHP,snipe,snipe-it,[]
+PHP,Sylius,Sylius,"['phpunit', 'mockery']"
+PHP,symfony,symfony,['phpunit']
+PHP,twigphp,Twig,['phpunit']
+PHP,wallabag,wallabag,['phpunit']
+PHP,woocommerce,woocommerce,['phpunit']
+PHP,WordPress,WordPress,[]
+PHP,yiisoft,yii2,['phpunit']

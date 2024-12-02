@@ -1,0 +1,43 @@
+name,test_tools
+akaunting,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock']"
+annotations,['phpunit']
+aws-sdk-php,['phpunit']
+Cachet,"['codeception', 'phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock']"
+cakephp,"['phpunit', 'vfsstream']"
+CodeIgniter,"['phpunit', 'vfsstream']"
+common,['phpunit']
+composer,['phpunit']
+core,"['codeception', 'phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery']"
+cphalcon,"['codeception', 'phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'codeception/stub']"
+dbal,['phpunit']
+firefly-iii,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock']"
+framework,"['phpunit', 'mockery']"
+grav,"['codeception', 'vfsstream', 'phpunit', 'mockery', 'codeception/stub']"
+http-kernel,[phpunit]
+humhub,"['codeception', 'phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock', 'codeception/stub']"
+invoiceninja,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock']"
+lang,['phpunit']
+laravel,"['phpunit', 'mockery']"
+magento2,"['codeception', 'phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock', 'codeception/stub']"
+mailcow-dockerized,"['phpunit', 'mockery']"
+matomo,"['phpunit-easymock', 'phpunit', 'codeception']"
+mautic,"['codeception', 'phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock']"
+october,['phpunit']
+opencart,['phpunit']
+orm,['phpunit']
+phan,"['phpunit', 'phpspec', 'mockery', 'prophecy']"
+PHP_CodeSniffer,['phpunit']
+PHP-CS-Fixer,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery']"
+phpmyadmin,['phpunit']
+phpunit,['phpunit']
+PrestaShop,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery']"
+rector,['phpunit']
+server,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery']"
+snipe-it,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock']"
+Sylius,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery']"
+symfony,['phpunit']
+Twig,['phpunit']
+wallabag,"['phpspec', 'vfsstream', 'phpunit', 'prophecy', 'mockery', 'php-mock']"
+woocommerce,"['phpspec', 'phpunit', 'prophecy', 'mockery', 'php-mock']"
+WordPress,['phpunit']
+yii2,"['vfsstream', 'phpunit', 'phpspec', 'prophecy']"
