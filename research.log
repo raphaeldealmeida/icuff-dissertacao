@@ -72,6 +72,11 @@ gh api graphql -F owner='google' -F name='guava' -f query='query($name: String!,
 
 ==========================================
 
+###Obtendo total commits
+gh api -X GET "/repos/magento/magento2/commits?per_page=1" --include -q '.[].sha' | grep '^Link:' | grep -o 'page=[0-9]*>; rel="last"' | grep -o '[0-9]*'
+
+================
+
 As can be noted, the relational (SQL) model is the most commonly used (78.17% of the
 projects use a relational DBMS). Still, the non-relational (NoSQL) model is also present.
 

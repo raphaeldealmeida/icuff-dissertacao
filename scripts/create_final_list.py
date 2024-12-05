@@ -4,12 +4,15 @@
 # Description: Criar a lista de final dos projetos
 
 import requests
-import json, io, codecs, re, math
+import json, io, codecs, re, math, subprocess
 from datetime import date
 from os import listdir
 from os.path import isfile, join
 import pandas as pd
 import time
+from dotenv import load_dotenv
+import os
+
 
 FIELD_NAMES = [
     "owner",
@@ -36,10 +39,16 @@ FIELD_NAMES = [
     "domain",
     "description",
 ]
-DATASET_PATH = "../dataset/projects_2022.xlsx"
+DATASET_PATH = "../dataset/projects_202312.xlsx"
 RAW_DATASET_PATH = "../dataset/raw_projects.xlsx"
 user = "raphaelrsa"
-password = "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"  #
+token = os.getenv("GITHUB_TOKEN")
+password = token  #
+headers = {
+    "Accept": "application/vnd.github+json",
+    "Authorization": f"Bearer {token}",
+    "X-GitHub-Api-Version": "2022-11-28",
+}
 
 
 def execute2():
@@ -187,7 +196,7 @@ def create_excel():
                     "stargazers": r["stargazers_count"],
                     "forks": r["forks_count"],
                     "issues": r["open_issues_count"],
-                    "commits": commit_count2(r["owner"]["login"], r["name"]),  #
+                    "commits": commit_count_gh(r["owner"]["login"], r["name"]),  #
                     "pullRequests": "",  #
                     "branches": "",  #
                     "tags": "",  #
@@ -252,10 +261,11 @@ def commit_count2(user_repo, repo):
     url = f"https://api.github.com/repos/{user_repo}/{repo}/commits?per_page=1"
 
     resp = requests.get(url, auth=(user, password))
+    # resp = requests.get(url, headers=headers)
 
     if (resp.status_code // 100) != 2:
-        # raise Exception(f"invalid github response: {resp.content}")
-        print(f"{user_repo}/{repo}: Não foi possível obter commits")
+        raise Exception(f"invalid github response: {resp.content}")
+        # print(f"{user_repo}/{repo}: Não foi possível obter commits")
         return 0
     # check the resp count, just in case there are 0 commits
     commit_count = len(resp.json())
@@ -270,6 +280,27 @@ def commit_count2(user_repo, repo):
         # extract the page number from the query string
         commit_count = int(dict_result["page"][0])
     return commit_count
+
+
+def commit_count_gh(user_repo, repo):
+    """
+    Return the number of commits to a project using GitHub CLI (gh).
+    """
+    repo_full_name = f"{user_repo}/{repo}"
+
+    try:
+        command = (
+            f'gh api -X GET "/repos/{repo_full_name}/commits?per_page=1" --include '
+            '| grep "^Link:" | grep -o "page=[0-9]*>; rel=\\"last\\"" | grep -o "[0-9]*"'
+        )
+        result = subprocess.run(
+            command, shell=True, capture_output=True, text=True, check=True
+        )
+        return int(result.stdout.strip())
+    except subprocess.CalledProcessError as e:
+        print(f"{repo_full_name}: Não foi possível obter commits")
+        print(f"Erro: {e.stderr}")
+        return 0
 
 
 def show_raw_corpus():
@@ -302,6 +333,9 @@ def show_raw_corpus():
 if __name__ == "__main__":
     # execute2()
     # create_raw_corpus()
-    show_raw_corpus()
-    # create_excel()
+    # show_raw_corpus()  # Create graphic
+    create_excel()
     # fill_commit_amount()
+    # user_repo = "magento"
+    # repo = "magento2"
+    # print(f"Total de commits: {commit_count2(user_repo, repo)}")
