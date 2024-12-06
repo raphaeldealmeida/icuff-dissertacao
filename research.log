@@ -195,6 +195,10 @@ impose any constraints?
 
 https://github.com/spesmilo/electrum/blob/b7a9e4cf7e1705f94e6245389e9531d3d2ac4874/tests/test_commands.py#L88
 
+==========================
+
+removed projects
+owid	covid-19-data	2020-03-09T16:00:06Z	2022-10-21T17:06:42Z			Python			5451	5451	3530	1	20815					https://github.com/owid/covid-19-data	Y			Data on COVID-19 (coronavirus) cases, deaths, hospitalizations, tests • All countries • Updated daily by Our World in Data
 
 
 
