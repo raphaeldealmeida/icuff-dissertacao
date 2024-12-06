@@ -5,7 +5,7 @@ from test_tool_by_descriptor import _get_owner_from_repo
 # Descripton: Verifica em cada projeto, quais ferramentas de teste utilizada pelos projetos
 
 # ===== Configuration variables ======
-PROG_LANG = "JavaScript"
+PROG_LANG = "PHP"
 REPO_PATH = "/media/raphaelrsa/de61512f-e8e6-4e0a-9cbc-168ddd77ff20/repos"
 DATASET_PATH_TEST_PROJECTS = f"../dataset/{PROG_LANG}_projects_tests_tools2.csv"
 
@@ -19,24 +19,149 @@ TOOL_PATTERNS = {
     "PHP": {
         "PHPUnit": [
             r"(createStub\((.*?)\))",
+            r"(createStubForIntersectionOfInterfaces\((.*?)\))",
+            r"(createConfiguredStub\((.*?)\))",
             r"(createMock\((.*?)\))",
-            # Outros padrões omitidos por brevidade
+            r"(createMockForIntersectionOfInterfaces\((.*?)\))",
+            r"(createConfiguredMock\((.*?)\))",
+            r"(getMockForAbstractClass\((.*?)\))",
+            r"(getMockForTrait\((.*?)\))",
+            r"(getMockFromWsdl\((.*?)\))",
+            r"(getMockBuilder\((.*?)\))",
+            r"(setMockClassName\((.*?)\))",
         ],
         "Mockery": [
             r"([Mockery|m]::mock\((.*?)\))",
-            # Outros padrões omitidos por brevidade
+            r"([Mockery|m]::spy\((.*?)\))",
+            r"([Mockery|m]::namedMock\((.*?)\))",
+            r"([Mockery|m]::any\((.*?)\))",
+        ],
+        "vfsStream": [
+            r"(vfsStream::setup\((.*?)\))",
+            r"(vfsStream::inspect\((.*?)\))",
+            r"(vfsStream::newFile\((.*?)\))",
+            r"(vfsStream::newDirectory\((.*?)\))",
+            r"(vfsStream::url\((.*?)\))",
+            r"(vfsStream::create\((.*?)\))",
+            r"(vfsStreamFile\((.*?)\))",
+            r"(vfsStreamDirectory\((.*?)\))",
+            r"(vfsStreamContent::chmod\((.*?)\))",
+            r"(vfsStreamContent::chmod\((.*?)\))",
+            r"(vfsStreamContent::chmod\((.*?)\))",
+            r"(vfsStream::copyFromFileSystem\((.*?)\))",
+            r"(vfsStream::newBlock\((.*?)\))",
+        ],
+        "phpspec": [
+            r'class\s+\w+\s+extends\s+ObjectBehavior\s*{[^}]*?\$[\w]+\s*->\s*beADoubleOf\(\s*[\'"]([^\'"]+)[\'"]\s*\)',
+        ],
+        "prophecy": [
+            r"(this->prophet->prophesize\((.*?)\))",
+            r"(prophecy->willExtend\((.*?)\))",
+            r"(prophecy->willImplement\((.*?)\))",
+        ],
+        "easymock": [
+            r"(this->easyMock\((.*?)\))",
+        ],
+        "codeception/stub": [
+            r"Codeception\\Stub::make\((\w+)\)",
+            r"Codeception\\Test\\Feature\Stub::make\((\w+)\)",
+            r"use\s+Codeception\\Test\\Feature\\Stub;.*?Stub::make\((.+?)\)",
+            r"use\s+Codeception\\Stub;.*?Stub::make\((.+?)\)",
+        ],
+        "php-mock": [
+            r"(new MockBuilder\((.*?)\))",
         ],
     },
     "JavaScript": {
         "jest": [
             r"(jest.mock\((.*?)\))",
         ],
+        "jasmine": [
+            r"(jasmine.Ajax.withMock\((.*?)\))",
+        ],
+        "tape": [
+            r"(t.equal\((.*?)\))",
+        ],
         "sinon": [
             r"(sinon.spy\((.*?)\))",
             r"(sinon.mock\((.*?)\))",
         ],
-        # Outros padrões omitidos por brevidade
+        "testdouble": [
+            r"(td.replace\((.*?)\))",
+            r"(td.constructor\((.*?)\))",
+            r"(td.instance\((.*?)\))",
+        ],
+        "proxyquire": [
+            r"(proxyquire\((.*?)\))",
+        ],
+        "nock": [
+            r"(nock\((.*?)\))",
+        ],
     },
+    "Java": {
+        "powermock": [
+            r"(PowerMock.createMock\((.*?)\))",
+            r"(PowerMock.createMockAndExpectNew\((.*?)\))",
+            r"(PowerMock.createNiceMock\((.*?)\))",
+            r"(PowerMock.createNiceMockAndExpectNew\((.*?)\))",
+            r"(PowerMock.createNicePartialMock\((.*?)\))",
+            r"(PowerMock.createPartialMock\((.*?)\))",
+            r"(PowerMock.mockStatic\((.*?)\))",
+            r"(PowerMock.mock\((.*?)\))",
+            r"(PowerMock.whenNew\((.*?)\))",
+        ],
+        "mockito": [
+            # import static org.mockito.Mockito.mock; mock()
+            r"(Mockito.mock\((.*?)\))",
+        ],
+        "easymock": [
+            r"(EasyMock.createMock\((.*?)\))",
+            r"(@Mock\((.*?)\))",
+            # private Collaborator mock
+        ],
+        "jmock": [
+            r"(new Mockery\((.*?)\))",
+            r"(Mockery.mock\((.*?)\))",
+        ],
+        "wiremock": [
+            r"(@WireMockTest\((.*?)\))",
+        ],
+    },
+    "Python": {
+        "pytest": [
+            r"(@pytest.fixture\((.*?)\))",
+        ],
+        "unittest": [
+            r"(@mock.patch.object\((.*?)\))",
+            r"(MagicMock\((.*?)\))",
+        ],
+        "requests_mock": [
+            r"(requests_mock.get\((.*?)\))",
+            r"(requests_mock.Mocker\((.*?)\))",
+            r"(requests_mock.Mocker\((.*?)\))",
+        ],
+        "freezegun": [
+            r"(@freeze_time\((.*?)\))",
+        ],
+        "httmock": [
+            r"(@urlmatch\((.*?)\))",
+            r"(@all_requests\((.*?)\))",
+        ],
+        "httpretty": [
+            r"(@httpretty.activate\((.*?)\))",
+            r"(httpretty.register_uri\((.*?)\))",
+        ],
+        "mocket": [
+            r"(@mocketize\((.*?)\))",
+            r"(@Mocketizer\((.*?)\))",
+        ],
+        "responses": [
+            r"(responses.patch\((.*?)\))",
+        ],
+        "vcrpy": [
+            r"(@vcr.use_cassette\((.*?)\))",
+        ],
+    }
 }
 
 
@@ -65,13 +190,20 @@ def process_file(file_path, language):
 
 def find_tool_occurrences(project_path, language):
     # Verifica a extensão dos arquivos com base na linguagem
-    file_extension = ".php" if language == "PHP" else ".js"
+    language_extensions = {
+        "PHP": [".php", ],
+        "JavaScript": [".js", ".ts", ".spec"],
+        "Python": [".py"],
+        "Java": [".java"]
+    }
+
+    file_extensions = language_extensions.get(language, [])
 
     # Encontra todos os arquivos correspondentes no diretório
     all_files = []
     for root, _, files in os.walk(project_path):
         for file in files:
-            if file.endswith(file_extension):
+            if any(file.endswith(ext) for ext in file_extensions):
                 all_files.append(os.path.join(root, file))
 
     # Paraleliza o processamento dos arquivos usando joblib
