@@ -1,0 +1,137 @@
+lang,owner,name,test_tools
+Python,sqlalchemy,sqlalchemy,"['pytest', 'unittest']"
+Python,scipy,scipy,['pytest']
+Python,frappe,erpnext,['unittest']
+Python,OctoPrint,OctoPrint,"['pytest', 'unittest']"
+Python,getredash,redash,"['pytest', 'unittest', 'freezegun']"
+Python,python,mypy,['unittest']
+Python,mopidy,mopidy,"['unittest', 'responses']"
+Python,chainer,chainer,"['pytest', 'unittest']"
+Python,pyg-team,pytorch_geometric,['pytest']
+Python,dbt-labs,dbt-core,"['pytest', 'unittest', 'freezegun']"
+Python,microsoft,recommenders,['pytest']
+Python,ipython,ipython,"['pytest', 'unittest']"
+Python,pymc-devs,pymc,"['pytest', 'unittest']"
+Python,networkx,networkx,['pytest']
+Python,akfamily,akshare,[]
+Python,jumpserver,jumpserver,[]
+Python,vnpy,vnpy,[]
+Python,huggingface,transformers,"['pytest', 'unittest']"
+Python,spyder-ide,spyder,"['pytest', 'unittest']"
+Python,HypothesisWorks,hypothesis,"['pytest', 'unittest']"
+Python,microsoft,pyright,[]
+Python,borgbackup,borg,"['pytest', 'unittest']"
+Python,Theano,Theano,[]
+Python,python-pillow,Pillow,['pytest']
+Python,spesmilo,electrum,['unittest']
+Python,mailpile,Mailpile,[]
+Python,PaddlePaddle,PaddleOCR,['pytest']
+Python,encode,django-rest-framework,['unittest']
+Python,mitmproxy,mitmproxy,"['pytest', 'unittest', 'requests_mock']"
+Python,fail2ban,fail2ban,[]
+Python,plotly,plotly.py,"['pytest', 'unittest']"
+Python,yt-dlp,yt-dlp,"['pytest', 'unittest']"
+Python,jina-ai,jina,['pytest']
+Python,beetbox,beets,"['pytest', 'unittest', 'responses']"
+Python,pyinstaller,pyinstaller,['pytest']
+Python,trustedsec,social-engineer-toolkit,[]
+Python,sqlmapproject,sqlmap,[]
+Python,pypa,pip,"['pytest', 'unittest', 'freezegun']"
+Python,lutris,lutris,['unittest']
+Python,great-expectations,great_expectations,"['pytest', 'unittest', 'freezegun', 'responses']"
+Python,numenta,nupic,['unittest']
+Python,matplotlib,matplotlib,"['pytest', 'unittest']"
+Python,kovidgoyal,calibre,[]
+Python,mindsdb,mindsdb,"['pytest', 'unittest', 'responses']"
+Python,pytest-dev,pytest,"['pytest', 'unittest']"
+Python,python,cpython,['unittest']
+Python,numpy,numpy,['pytest']
+Python,scikit-learn,scikit-learn,['pytest']
+Python,ansible,awx,"['pytest', 'unittest']"
+Python,scikit-image,scikit-image,['pytest']
+Python,lbryio,lbry-sdk,['unittest']
+Python,explosion,spaCy,"['pytest', 'unittest']"
+Python,guardicore,monkey,"['pytest', 'unittest', 'mongomock', 'requests_mock']"
+Python,home-assistant,core,"['pytest', 'unittest', 'requests_mock', 'freezegun']"
+Python,pyca,cryptography,['pytest']
+Python,pandas-dev,pandas,"['pytest', 'unittest']"
+Python,cython,cython,[]
+Python,deis,deis,['unittest']
+Python,dagster-io,dagster,"['pytest', 'unittest', 'requests_mock', 'responses']"
+Python,keras-team,keras,['unittest']
+Python,optuna,optuna,"['pytest', 'unittest']"
+Python,pallets,werkzeug,"['pytest', 'unittest']"
+Python,yutiansut,QUANTAXIS,[]
+Python,espnet,espnet,"['pytest', 'unittest']"
+Python,commaai,openpilot,"['pytest', 'unittest']"
+Python,aio-libs,aiohttp,"['pytest', 'unittest']"
+Python,Chia-Network,chia-blockchain,"['pytest', 'unittest']"
+Python,unifyai,ivy,['pytest']
+Python,certbot,certbot,"['pytest', 'unittest']"
+Python,aws,aws-cli,"['pytest', 'unittest']"
+Python,saltstack,salt,"['pytest', 'unittest']"
+Python,django-oscar,django-oscar,"['pytest', 'unittest', 'freezegun']"
+Python,zulip,zulip,"['unittest', 'responses']"
+Python,psf,requests,"['pytest', 'unittest']"
+Python,RasaHQ,rasa,"['pytest', 'unittest', 'freezegun', 'responses']"
+Python,wagtail,wagtail,"['unittest', 'freezegun']"
+Python,jupyterhub,jupyterhub,"['pytest', 'unittest']"
+Python,numba,numba,['unittest']
+Python,Nuitka,Nuitka,[]
+Python,giampaolo,psutil,['unittest']
+Python,apache,tvm,"['pytest', 'unittest']"
+Python,saulpw,visidata,['pytest']
+Python,cookiecutter,cookiecutter-django,['pytest']
+Python,reddit-archive,reddit,['unittest']
+Python,OWASP,owasp-mastg,[]
+Python,brython-dev,brython,['unittest']
+Python,spulec,moto,"['pytest', 'unittest', 'freezegun', 'responses']"
+Python,pypa,pipenv,"['pytest', 'unittest']"
+Python,PrefectHQ,prefect,"['pytest', 'unittest']"
+Python,nltk,nltk,"['pytest', 'unittest']"
+Python,ytdl-org,youtube-dl,[]
+Python,apache,airflow,"['pytest', 'unittest', 'mongomock', 'requests_mock', 'responses']"
+Python,iterative,dvc,"['pytest', 'unittest']"
+Python,statsmodels,statsmodels,['pytest']
+Python,platformio,platformio-core,['pytest']
+Python,dask,dask,"['pytest', 'unittest']"
+Python,edgedb,edgedb,['unittest']
+Python,qutebrowser,qutebrowser,"['pytest', 'unittest']"
+Python,xonsh,xonsh,"['pytest', 'unittest']"
+Python,freqtrade,freqtrade,"['pytest', 'unittest']"
+Python,getsentry,sentry,"['pytest', 'unittest', 'freezegun', 'responses']"
+Python,kivy,kivy,"['pytest', 'unittest', 'responses']"
+Python,django-cms,django-cms,[]
+Python,gevent,gevent,['unittest']
+Python,cupy,cupy,"['pytest', 'unittest']"
+Python,bokeh,bokeh,"['pytest', 'unittest']"
+Python,boto,boto,['unittest']
+Python,matrix-org,synapse,['unittest']
+Python,d2l-ai,d2l-en,[]
+Python,kovidgoyal,kitty,[]
+Python,sympy,sympy,['pytest']
+Python,netbox-community,netbox,[]
+Python,readthedocs,readthedocs.org,"['pytest', 'unittest', 'requests_mock']"
+Python,streamlit,streamlit,"['pytest', 'unittest']"
+Python,celery,celery,"['pytest', 'unittest']"
+Python,scrapy,scrapy,"['pytest', 'unittest']"
+Python,django,django,['unittest']
+Python,openedx,edx-platform,"['pytest', 'unittest', 'requests_mock', 'freezegun', 'httpretty', 'responses']"
+Python,conan-io,conan,"['pytest', 'unittest']"
+Python,SigmaHQ,sigma,[]
+Python,tensorflow,models,['unittest']
+Python,plotly,dash,"['pytest', 'unittest']"
+Python,PySimpleGUI,PySimpleGUI,[]
+Python,secdev,scapy,[]
+Python,ManimCommunity,manim,"['pytest', 'unittest']"
+Python,saleor,saleor,"['pytest', 'unittest', 'freezegun', 'vcrpy']"
+Python,robotframework,robotframework,[]
+Python,google,jax,"['pytest', 'unittest']"
+Python,ray-project,ray,"['pytest', 'unittest', 'freezegun']"
+Python,quantopian,zipline,"['unittest', 'responses']"
+Python,Lightning-AI,lightning,"['pytest', 'unittest']"
+Python,angr,angr,['unittest']
+Python,521xueweihan,GitHub520,[]
+Python,Ebazhanov,linkedin-skill-assessments-quizzes,[]
+Python,davidhalter,jedi,['pytest']
+Python,ansible,ansible,"['pytest', 'unittest']"

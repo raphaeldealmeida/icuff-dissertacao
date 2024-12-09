@@ -64,7 +64,8 @@ PHP
 		use phpmock\MockBuilder  # new MockBuilder() \ ->setName(mock_function)
 Python
 	pytest
-		@pytest.fixture
+		@pytest.fixture 
+		monkeypatch.setattr #https://docs.pytest.org/en/stable/how-to/monkeypatch.html
 	unittest
 		@mock.patch.object()
 		MagicMock()
@@ -88,7 +89,7 @@ Python
 		with Mocketizer()
 	responses
 		responses.patch()
-	vcrpy
+	vcrpy   # https://github.com/ktosiek/pytest-vcr https://github.com/kiwicom/pytest-recording  https://vcrpy.readthedocs.io/en/latest/usage.html#record-modes
 		@vcr.use_cassette(
 	pytest-vcr
 	pytest-recording

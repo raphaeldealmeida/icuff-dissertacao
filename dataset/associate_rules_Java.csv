@@ -1,0 +1,9 @@
+antecedents,consequents,antecedent suppor,consequent support,support,confidence,lift
+['easymock'],['mockito'],0.417,0.917,0.333,0.8,0.873
+['easymock'],['mockito'],0.417,0.917,0.333,0.8,0.873
+['easymock'],['mockito'],0.417,0.917,0.333,0.8,0.873
+['wiremock'],['easymock'],0.125,0.417,0.125,1.0,2.4
+['wiremock'],['mockito'],0.125,0.917,0.125,1.0,1.091
+"['wiremock', 'mockito']",['easymock'],0.125,0.417,0.125,1.0,2.4
+"['wiremock', 'easymock']",['mockito'],0.125,0.917,0.125,1.0,1.091
+['wiremock'],"['mockito', 'easymock']",0.125,0.333,0.125,1.0,3.0

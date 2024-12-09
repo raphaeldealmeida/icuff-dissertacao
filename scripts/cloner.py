@@ -5,8 +5,8 @@
 
 # ===== Configuration variables ======
 LIMIT = 200
-PROG_LANG = "Python"
-REPO_PATH = "/media/raphaelrsa/de61512f-e8e6-4e0a-9cbc-168ddd77ff20/repos/"
+PROG_LANG = "Java"
+REPO_PATH = "/media/raphaelrsa/de61512f-e8e6-4e0a-9cbc-168ddd77ff20/repos"
 # DATASET_PATH = '../dataset/2_filtered_projects.xlsx'
 DATASET_PATH = "../dataset/projects_2022.2.xlsx"
 # =====================================

@@ -6,3 +6,4 @@ settings.ipynb
 repos/
 .idea/
 .venv/
+.~*

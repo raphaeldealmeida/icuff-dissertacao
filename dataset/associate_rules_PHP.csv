@@ -1,0 +1,7 @@
+antecedents,consequents,antecedent suppor,consequent support,support,confidence,lift
+['mockery'],['phpunit'],0.281,0.875,0.188,0.667,0.762
+['vfsstream'],['phpunit'],0.188,0.875,0.156,0.833,0.952
+['mockery'],['phpunit'],0.281,0.875,0.188,0.667,0.762
+['vfsstream'],['phpunit'],0.188,0.875,0.156,0.833,0.952
+['mockery'],['phpunit'],0.281,0.875,0.188,0.667,0.762
+['vfsstream'],['phpunit'],0.188,0.875,0.156,0.833,0.952

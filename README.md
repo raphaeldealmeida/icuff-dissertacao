@@ -26,3 +26,5 @@ test_tool_by_descriptor.py
 search_mock_use.py
 
 dep_origins.py
+
+graphics.py

@@ -15,30 +15,3 @@ PHP,getgrav,grav,[]
 PHP,phacility,phabricator,[]
 PHP,cakephp,cakephp,"['phpunit', 'mockery', 'vfsstream']"
 PHP,laravel,laravel,[]
-PHP,humhub,humhub,[]
-PHP,magento,magento2,"['phpunit', 'mockery']"
-PHP,composer,composer,['phpunit']
-PHP,sebastianbergmann,phpunit,"['phpunit', 'php-mock']"
-PHP,PrestaShop,PrestaShop,"['phpunit', 'vfsstream']"
-PHP,mailcow,mailcow-dockerized,['phpunit']
-PHP,owncloud,core,"['phpunit', 'vfsstream']"
-PHP,WordPress,WordPress,[]
-PHP,snipe,snipe-it,[]
-PHP,CachetHQ,Cachet,"['phpunit', 'mockery']"
-PHP,phalcon,cphalcon,['phpunit']
-PHP,squizlabs,PHP_CodeSniffer,[]
-PHP,mautic,mautic,['phpunit']
-PHP,Laravel-Lang,lang,[]
-PHP,bcit-ci,CodeIgniter,"['phpunit', 'vfsstream']"
-PHP,aws,aws-sdk-php,['phpunit']
-PHP,doctrine,orm,['phpunit']
-PHP,akaunting,akaunting,[]
-PHP,phpmyadmin,phpmyadmin,['phpunit']
-PHP,symfony,symfony,['phpunit']
-PHP,phan,phan,[]
-PHP,nextcloud,server,[]
-PHP,doctrine,annotations,['phpunit']
-PHP,symfony,http-kernel,['phpunit']
-PHP,opencart,opencart,['vfsstream']
-PHP,Sylius,Sylius,"['phpunit', 'mockery']"
-PHP,FriendsOfPHP,PHP-CS-Fixer,"['phpunit', 'vfsstream']"

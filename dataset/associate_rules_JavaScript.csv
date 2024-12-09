@@ -1,0 +1,7 @@
+antecedents,consequents,antecedent suppor,consequent support,support,confidence,lift
+['nock'],['tape'],0.189,0.832,0.126,0.667,0.802
+['sinon'],['tape'],0.337,0.832,0.316,0.938,1.127
+['nock'],['tape'],0.189,0.832,0.126,0.667,0.802
+['sinon'],['tape'],0.337,0.832,0.316,0.938,1.127
+['nock'],['tape'],0.189,0.832,0.126,0.667,0.802
+['sinon'],['tape'],0.337,0.832,0.316,0.938,1.127

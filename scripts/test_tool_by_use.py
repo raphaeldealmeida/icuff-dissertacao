@@ -8,6 +8,7 @@ from test_tool_by_descriptor import _get_owner_from_repo
 PROG_LANG = "PHP"
 REPO_PATH = "/media/raphaelrsa/de61512f-e8e6-4e0a-9cbc-168ddd77ff20/repos"
 DATASET_PATH_TEST_PROJECTS = f"../dataset/{PROG_LANG}_projects_tests_tools2.csv"
+ALL_OCCURRENCES_CSV = f"../dataset/{PROG_LANG}_projects_all_occurrences.csv"
 
 import os
 import re
@@ -125,15 +126,23 @@ TOOL_PATTERNS = {
         ],
         "wiremock": [
             r"(@WireMockTest\((.*?)\))",
+            r"(new WireMockRule\((.*?)\))",
         ],
     },
     "Python": {
         "pytest": [
             r"(@pytest.fixture\((.*?)\))",
+            r"(monkeypatch.setattr\((.*?)\))",
         ],
         "unittest": [
-            r"(@mock.patch.object\((.*?)\))",
+            r"(mock.patch\((.*?)\))",
+            r"(mock.patch.object\((.*?)\))",
+            r"(mock.patch.dict\((.*?)\))",
             r"(MagicMock\((.*?)\))",
+        ],
+        "mongomock": [
+            r"(@mongomock.patch\((.*?)\))",
+            r"(mongomock.MongoClient\((.*?)\))",
         ],
         "requests_mock": [
             r"(requests_mock.get\((.*?)\))",
@@ -157,11 +166,18 @@ TOOL_PATTERNS = {
         ],
         "responses": [
             r"(responses.patch\((.*?)\))",
+            r"(@responses\.activate(?:\((.*?)\))?)",
+            r"(@_recorder\.record(?:\((.*?)\))?)",
+            r"(responses.RequestsMock\((.*?)\))",
         ],
         "vcrpy": [
             r"(@vcr.use_cassette\((.*?)\))",
+            r"(@pytest.mark.vcr\((.*?)\))",
+            r"(@pytest.mark.default_cassette\((.*?)\))",
+            r"(VCRTestCase(?:\((.*?)\))?)",
+            r"(MyTestMixin(?:\((.*?)\))?)",
         ],
-    }
+    },
 }
 
 
@@ -177,7 +193,9 @@ def process_file(file_path, language):
                         match = re.search(pattern, line_content)
                         if match:
                             full_call = match.group(1)  # Chamada completa
-                            params = match.group(2)  # Parâmetros extraídos
+                            params = (
+                                match.group(2) if match.lastindex >= 2 else ""
+                            )  # Parâmetros opcionais
                             occurrences[tool].append(
                                 (file_path, line_number, full_call, params)
                             )
@@ -191,10 +209,12 @@ def process_file(file_path, language):
 def find_tool_occurrences(project_path, language):
     # Verifica a extensão dos arquivos com base na linguagem
     language_extensions = {
-        "PHP": [".php", ],
+        "PHP": [
+            ".php",
+        ],
         "JavaScript": [".js", ".ts", ".spec"],
         "Python": [".py"],
-        "Java": [".java"]
+        "Java": [".java"],
     }
 
     file_extensions = language_extensions.get(language, [])
@@ -246,7 +266,68 @@ def export_results(occurrences, project_name):
         writer.writerow([PROG_LANG, owner, proj_name, tools_detected])
 
 
+def export_all_occurrences(occurrences, project_name):
+    """
+    Exporta todas as ocorrências detalhadas para um arquivo CSV.
+
+    Args:
+        occurrences (dict): Ocorrências de ferramentas.
+        project_name (str): Nome do projeto.
+    """
+    _, proj_name = project_name.split("/")
+    owner = _get_owner_from_repo(f"{REPO_PATH}/{PROG_LANG}/{proj_name}")
+
+    # Grava em CSV
+    with open(ALL_OCCURRENCES_CSV, mode="a", newline="", encoding="utf-8") as csv_file:
+        writer = csv.writer(csv_file)
+        if csv_file.tell() == 0:
+            # Cabeçalho
+            writer.writerow(
+                [
+                    "lang",
+                    "owner",
+                    "name",
+                    "tool",
+                    "file_path",
+                    "line_number",
+                    "full_call",
+                    "params",
+                ]
+            )
+
+        # Escreve todas as ocorrências detectadas
+        for tool, occurrences_list in occurrences.items():
+            for file_path, line_number, full_call, params in occurrences_list:
+                writer.writerow(
+                    [
+                        PROG_LANG,
+                        owner,
+                        proj_name,
+                        tool,
+                        file_path,
+                        line_number,
+                        full_call,
+                        params,
+                    ]
+                )
+
+
+def _delete_file(file_path):
+    try:
+        # Verifica se o arquivo existe
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+            print(f"Arquivo '{file_path}' foi apagado com sucesso.")
+        else:
+            print(f"O arquivo '{file_path}' não existe.")
+    except Exception as e:
+        print(f"Erro ao tentar apagar o arquivo: {e}")
+
+
 if __name__ == "__main__":
+    _delete_file(DATASET_PATH_TEST_PROJECTS)
+    _delete_file(ALL_OCCURRENCES_CSV)
+
     # Verifica todos os repositórios definidos em REPO_PATH para a linguagem especificada em PROG_LANG
     language_path = os.path.join(REPO_PATH, PROG_LANG)
     if os.path.isdir(language_path):
@@ -256,3 +337,10 @@ if __name__ == "__main__":
                 project_name = f"{PROG_LANG}/{project_directory}"
                 results = find_tool_occurrences(project_path, PROG_LANG)
                 export_results(results, project_name)
+                export_all_occurrences(results, project_name)
+
+    # Verifica apenas um repositório
+    # project_name = f"{PROG_LANG}/ghidra"
+    # results = find_tool_occurrences(f"{REPO_PATH}/{project_name}", PROG_LANG)
+    # export_results(results, project_name)
+    # export_all_occurrences(results, project_name)
