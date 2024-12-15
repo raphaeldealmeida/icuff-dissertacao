@@ -7,11 +7,4 @@ antecedents,consequents,antecedent suppor,consequent support,support,confidence,
 "['freezegun', 'unittest']",['pytest'],0.117,0.775,0.108,0.923,1.191
 "['freezegun', 'pytest']",['unittest'],0.108,0.829,0.108,1.0,1.207
 ['freezegun'],"['unittest', 'pytest']",0.117,0.604,0.108,0.923,1.529
-['freezegun'],['pytest'],0.117,0.775,0.108,0.923,1.191
-['freezegun'],['unittest'],0.117,0.829,0.117,1.0,1.207
-['pytest'],['unittest'],0.775,0.829,0.604,0.779,0.94
-['unittest'],['pytest'],0.829,0.775,0.604,0.728,0.94
-['responses'],['unittest'],0.117,0.829,0.117,1.0,1.207
-"['freezegun', 'pytest']",['unittest'],0.108,0.829,0.108,1.0,1.207
-"['freezegun', 'unittest']",['pytest'],0.117,0.775,0.108,0.923,1.191
-['freezegun'],"['pytest', 'unittest']",0.117,0.604,0.108,0.923,1.529
+

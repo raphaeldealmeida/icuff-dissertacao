@@ -210,7 +210,7 @@ def run(lang):
 
 
 if __name__ == "__main__":
-    run("Python")
-    run("PHP")
+    # run("Python")
+    # run("PHP")
     run("Java")
-    run("JavaScript")
+    # run("JavaScript")

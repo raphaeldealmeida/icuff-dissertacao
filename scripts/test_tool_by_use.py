@@ -5,7 +5,7 @@ from test_tool_by_descriptor import _get_owner_from_repo
 # Descripton: Verifica em cada projeto, quais ferramentas de teste utilizada pelos projetos
 
 # ===== Configuration variables ======
-PROG_LANG = "PHP"
+PROG_LANG = "Java"
 REPO_PATH = "/media/raphaelrsa/de61512f-e8e6-4e0a-9cbc-168ddd77ff20/repos"
 DATASET_PATH_TEST_PROJECTS = f"../dataset/{PROG_LANG}_projects_tests_tools2.csv"
 ALL_OCCURRENCES_CSV = f"../dataset/{PROG_LANG}_projects_all_occurrences.csv"
@@ -110,10 +110,11 @@ TOOL_PATTERNS = {
             r"(PowerMock.mockStatic\((.*?)\))",
             r"(PowerMock.mock\((.*?)\))",
             r"(PowerMock.whenNew\((.*?)\))",
+            r"(PowerMockito.whenNew\((.*?)\))",
         ],
         "mockito": [
             # import static org.mockito.Mockito.mock; mock()
-            r"(Mockito.mock\((.*?)\))",
+            r"(@Mock(?:\((.*?)\))?)",
         ],
         "easymock": [
             r"(EasyMock.createMock\((.*?)\))",
@@ -127,6 +128,9 @@ TOOL_PATTERNS = {
         "wiremock": [
             r"(@WireMockTest\((.*?)\))",
             r"(new WireMockRule\((.*?)\))",
+        ],
+        "mock-server": [
+            r"(import org.mockserver.integration.ClientAndServer(?:\((.*?)\))?)",
         ],
     },
     "Python": {
@@ -340,7 +344,7 @@ if __name__ == "__main__":
                 export_all_occurrences(results, project_name)
 
     # Verifica apenas um repositório
-    # project_name = f"{PROG_LANG}/ghidra"
+    # project_name = f"{PROG_LANG}/Conversations"
     # results = find_tool_occurrences(f"{REPO_PATH}/{project_name}", PROG_LANG)
     # export_results(results, project_name)
     # export_all_occurrences(results, project_name)

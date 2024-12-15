@@ -15,3 +15,7 @@ PHP,getgrav,grav,[]
 PHP,phacility,phabricator,[]
 PHP,cakephp,cakephp,"['phpunit', 'mockery', 'vfsstream']"
 PHP,laravel,laravel,[]
+PHP,humhub,humhub,[]
+PHP,magento,magento2,"['phpunit', 'mockery']"
+PHP,composer,composer,['phpunit']
+PHP,sebastianbergmann,phpunit,"['phpunit', 'php-mock']"

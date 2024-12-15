@@ -154,7 +154,7 @@ def _write_csv(result):
 def _get_owner_from_repo(path_repo):
     print(path_repo)
     remote = os.popen(f'cd "{path_repo}" && git remote -v').read().split("\n")[0]
-    pattern = "^origin	http[s]*:\/\/[www.]*[github|gitlab|codeberd]*\.com\/(.*)\/(.*)\.git \(fetch\)$"
+    pattern = r"^origin\s+http[s]*:\/\/(?:www\.)?(github|gitlab|codeberg)\.(com|org)\/([^\/]+)\/[^ ]+\.git \(fetch\)$"
     m = re.search(pattern, remote)
     return str(m.group(1))
 
