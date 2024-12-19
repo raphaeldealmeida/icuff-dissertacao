@@ -910,12 +910,12 @@ def convert_multiple_csvs_to_variable(file_paths):
 
 
 if __name__ == "__main__":
-    # plot_test_corpus()
-    # plot_python_mock_tools()
-    # plot_javascript_mock_tools()
-    # plot_php_mock_tools()
-    # plot_java_mock_tools()
-    # plot_mocks_por_linguagem()
-    # plot_dep_type()
-    # plot_mocktools_groups()
+    plot_test_corpus()
+    plot_python_mock_tools()
+    plot_javascript_mock_tools()
+    plot_php_mock_tools()
+    plot_java_mock_tools()
+    plot_mocks_por_linguagem()
+    plot_dep_type()
+    plot_mocktools_groups()
     plot_tools_languages()
