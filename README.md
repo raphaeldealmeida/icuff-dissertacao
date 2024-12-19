@@ -17,7 +17,7 @@ Alterar a variável ```PROG_LANG``` ao executar o script.
 - create_final_list.py
 - cloner.py
 - count_test_files.py
-- test_tool_by_descriptor.py
+- test_tool_by_use.py
 - search_mock_use.py
 - dep_origins.py
 - graphics.py

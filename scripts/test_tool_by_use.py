@@ -5,7 +5,7 @@ from test_tool_by_descriptor import _get_owner_from_repo
 # Descripton: Verifica em cada projeto, quais ferramentas de teste utilizada pelos projetos
 
 # ===== Configuration variables ======
-PROG_LANG = "Java"
+PROG_LANG = "PHP"
 REPO_PATH = "/media/raphaelrsa/de61512f-e8e6-4e0a-9cbc-168ddd77ff20/repos"
 DATASET_PATH_TEST_PROJECTS = f"../dataset/{PROG_LANG}_projects_tests_tools2.csv"
 ALL_OCCURRENCES_CSV = f"../dataset/{PROG_LANG}_projects_all_occurrences.csv"
