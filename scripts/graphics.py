@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import csv, glob
+from collections import defaultdict
 
 GRAPHCS_PATH = "../graphics/"
 
@@ -777,12 +779,143 @@ def plot_mocktools_groups():
     plt.savefig(f"{GRAPHCS_PATH}mocktools_groups.png")
 
 
+def plot_tools_languages():
+    # Dados convertidos para formato de gráfico de barras empilhadas
+    # data_converted = {
+    #     "Linguagem": ["Java", "JavaScript", "PHP", "Python"],
+    #     "pytest": [0, 0, 0, 95],
+    #     "unittest": [0, 0, 0, 108],
+    #     "mongomock": [0, 0, 0, 1],
+    #     "requests_mock": [0, 0, 0, 12],
+    #     "douplex": [0, 0, 0, 0],
+    #     "freezegun": [0, 0, 0, 14],
+    #     "httmock": [0, 0, 0, 0],
+    #     "httpretty": [0, 0, 0, 2],
+    #     "mocket": [0, 0, 0, 0],
+    #     "responses": [0, 0, 0, 56],
+    #     "vcrpy": [0, 0, 0, 2],
+    #     "powermock": [20, 0, 0, 0],
+    #     "mockito": [97, 0, 0, 0],
+    #     "easymock": [9, 0, 0, 0],
+    #     "jmock": [7, 0, 0, 0],
+    #     "hoverfly-java": [0, 0, 0, 0],
+    #     "karate": [0, 0, 0, 0],
+    #     "wiremock": [21, 0, 0, 0],
+    #     "jmockit": [4, 0, 0, 0],
+    #     "mock-server": [5, 0, 0, 0],
+    #     "jest": [0, 51, 0, 0],
+    #     "jasmine": [0, 26, 0, 0],
+    #     "mocha": [0, 59, 0, 0],
+    #     "ava": [0, 57, 0, 0],
+    #     "sinon": [0, 0, 0, 0],
+    #     "testdouble": [0, 0, 0, 0],
+    #     "proxyquire": [0, 0, 0, 0],
+    #     "nock": [0, 0, 0, 0],
+    #     "tape": [0, 11, 0, 0],
+    #     "phpunit": [0, 0, 42, 0],
+    #     "codeception": [0, 0, 8, 0],
+    #     "phpspec": [0, 0, 17, 0],
+    #     "mockery": [0, 0, 20, 0],
+    #     "prophecy": [0, 0, 16, 0],
+    #     "php-mock": [0, 0, 8, 0],
+    #     "vfsstream": [0, 0, 15, 0],
+    # }
+
+    file_paths = glob.glob("../dataset/*_projects_tests_tools2.csv")
+    # Converter os dados de todos os arquivos
+    data_converted = convert_multiple_csvs_to_variable(file_paths)
+    # Convertendo o dicionário para um DataFrame para visualização
+    df_converted = pd.DataFrame(data_converted)
+
+    # Definir a coluna 'Linguagem' como o índice
+    df_converted.set_index("Linguagem", inplace=True)
+
+    # Plotting the stacked bar chart
+    plt.figure(figsize=(10, 8))  # Aumentando a altura do gráfico
+    ax = df_converted.plot(
+        kind="bar", stacked=True, figsize=(10, 8), legend=False
+    )  # Removendo a legenda
+
+    # Adicionando o rótulo com o nome da ferramenta e a quantidade no formato "Nome (XX)"
+    for i, container in enumerate(ax.containers):
+        for rect in container:
+            height = rect.get_height()
+            if height > 0:
+                ax.text(
+                    rect.get_x() + rect.get_width() / 2,  # Posição X
+                    rect.get_y() + rect.get_height() / 2,  # Posição Y
+                    f"{df_converted.columns[i]} ({int(height)})",  # Nome da ferramenta + quantidade
+                    ha="center",
+                    va="center",
+                    fontsize=8,
+                    color="black",
+                )
+
+    # Ajustando os rótulos das linguagens para ficarem na horizontal
+    ax.set_xticklabels(ax.get_xticklabels(), rotation=0, ha="center")
+
+    plt.title("Gráfico de Barras Empilhadas - Ferramentas de Mock por Linguagem")
+    plt.ylabel("Nº de Repositórios")
+    plt.xlabel("Linguagem")
+
+    plt.tight_layout()
+    plt.savefig(f"{GRAPHCS_PATH}tools_languages.png")
+
+    import csv
+
+
+def convert_multiple_csvs_to_variable(file_paths):
+    """
+    Lê vários arquivos CSV no formato especificado e combina os dados no formato solicitado.
+    Corrige conflitos entre nomes como "Java" e "JavaScript".
+
+    Args:
+        file_paths (list): Lista de caminhos para os arquivos CSV.
+
+    Returns:
+        dict: Dados combinados no formato solicitado.
+    """
+    # Inicializar estrutura de dados
+    data = defaultdict(
+        lambda: [0, 0, 0, 0]
+    )  # Formato para Java, JavaScript, PHP, Python
+
+    # Mapear linguagens para índices
+    lang_to_index = {"JavaScript": 1, "Java": 0, "PHP": 2, "Python": 3}
+
+    # Processar cada arquivo CSV
+    for file_path in file_paths:
+        # Inferir a linguagem a partir do nome do arquivo
+        lang_index = None
+        for lang in lang_to_index:
+            if lang.lower() in file_path.lower():
+                lang_index = lang_to_index[lang]
+                break
+        if lang_index is None:
+            raise ValueError(f"Linguagem não reconhecida no arquivo: {file_path}")
+
+        # Ler o arquivo CSV
+        with open(file_path, mode="r", encoding="utf-8") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                tools = eval(row["test_tools"])  # Converter string para lista
+                for tool in tools:
+                    data[tool][lang_index] += 1
+
+    # Adicionar linguagens ao resultado
+    result = {"Linguagem": ["Java", "JavaScript", "PHP", "Python"]}
+    result.update(data)
+
+    return result
+
+
 if __name__ == "__main__":
-    plot_test_corpus()
-    plot_python_mock_tools()
-    plot_javascript_mock_tools()
-    plot_php_mock_tools()
-    plot_java_mock_tools()
-    plot_mocks_por_linguagem()
-    plot_dep_type()
-    plot_mocktools_groups()
+    # plot_test_corpus()
+    # plot_python_mock_tools()
+    # plot_javascript_mock_tools()
+    # plot_php_mock_tools()
+    # plot_java_mock_tools()
+    # plot_mocks_por_linguagem()
+    # plot_dep_type()
+    # plot_mocktools_groups()
+    plot_tools_languages()
